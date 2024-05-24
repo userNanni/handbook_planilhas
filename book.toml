@@ -4,3 +4,6 @@ language = "pt-br"
 multilingual = false
 src = "src"
 title = "Handbook de Planilhas"
+[output.html]
+mathjax-support = true
+
