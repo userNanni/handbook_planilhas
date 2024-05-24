@@ -1,6 +1,6 @@
 [book]
 authors = ["userNanni"]
-language = "en"
+language = "pt-br"
 multilingual = false
 src = "src"
 title = "Handbook de Planilhas"
