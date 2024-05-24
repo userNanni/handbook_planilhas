@@ -28,9 +28,15 @@ Compreender, em conceitos gerais, sobre planilhas online, Google Planilhas
 
 - ## Onde Aprender
 
-  Um dos principais pontos que precisam ser entendidos para qualquer assunto é como continuar o aprendizado, principalmente para além das aulas e
+  Um dos principais pontos que precisam ser entendidos para qualquer assunto é como continuar o aprendizado, principalmente para além das aulas.
 
   - ### Documentação
+
+    Um dos melhores ambientes de estudo em todo e qualquer sistema/framework/bibliotecas é a página de documentação, e para a maioria das formulas a do Google Sheets consegue suprir todas necessidades.
+
+    [Documentação_da_Google](https://support.google.com/docs)
+
+    Outra página muito útil para todos
 
   - ### PBL
 
