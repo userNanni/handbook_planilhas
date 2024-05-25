@@ -18,3 +18,9 @@
 - [Query](./mostImportantFunctions/Query/query.md)
 
   - [Estrutura Básica](./mostImportantFunctions/Query/baseStructure.md)
+
+---
+
+# Práticas
+
+- [Query](./practices/query.md)

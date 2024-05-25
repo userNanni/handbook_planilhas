@@ -22,8 +22,8 @@ Um dos maiores pontos relacionados ao uso de Dados estruturados é a Linguagem d
 
 ### Não Estruturados
 
-não requer estruturas bem definidas, ou padronizadas e podem ser compostos por elementos diversos, comuns ao cotidiano das pessoas.
+Dados Não Estruturados são aqueles que , ao contrário dos [Estruturados](./DBConcepts.md#estruturados) não possuem uma estrutura rígida pré-definida. Assim podem compor esses bancos de dados diferentes elementos, como fotos, vídeos e imagens. Estima-se que 80% dos dados gerados atualmente na internet encontram-se nessa forma.
 
 ### Semi-Estruturados
 
-há uma combinação de características de dados estruturados e dados não estruturados. É como se falássemos que o dado semiestruturado tem menos controle do que o estruturado e mais rigidez (menos confusão) do que os não estruturados.
+Os dados semi-estruturados residem em um meio termo entre os dados estruturados e não estruturados, apresentando características de ambos. Imagine-os como dados organizados, mas sem a rigidez de um banco de dados relacional.

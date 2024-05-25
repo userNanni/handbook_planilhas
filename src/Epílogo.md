@@ -8,7 +8,7 @@ Tendo em vista a necessidade de ensino que existe na área de Planilhas Eletrôn
 
 ## Sobre o Autor
 
-Esse é a única página do material que estará em primeira pessoa e utilizarei ele para basicamente me promover. Basicamente, sou o Nanni, programo desde 2014, já trabalhei em diversos projetos em diversas áreas, porém no campo da computação e sistemas, fui desenvolvedor de games. Após entrar na Academia da Força Aérea, vi um área vaga, a produção de planilhas, atualmente o CCAER carece muito de pessoas que possuam um conhecimento vasto na área, a qual todos deveriam ter ao menos uma noção básica.
+Esse é a única página que utilizarei para basicamente me promover. Basicamente, sou o Nanni, programo desde 2014, já trabalhei em diversos projetos em diversas áreas, porém no campo da computação e sistemas, fui desenvolvedor de games. Após entrar na Academia da Força Aérea, vi um área vaga, a produção de planilhas, atualmente o CCAER carece muito de pessoas que possuam um conhecimento vasto na área, a qual todos deveriam ter ao menos uma noção básica.
 Se quiserem podem me contatar para escrever tópicos com dicas aqui de como desenvolver nessa área, ou explicar qualquer projeto que já fiz
 
 Deixo aqui alguns links para que conheçam mais sobre minha atuação e me contatem:
