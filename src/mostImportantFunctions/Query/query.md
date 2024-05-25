@@ -9,3 +9,5 @@ Uma das, se não a **Mais Importante** das Funções do Sheets, e aqui vai o por
 Mas primeiro vamos conhecer alguns conceitos dessa linguagem:
 
 1. [Estrutura Básica](./baseStructure.md)
+2. [Cláusulas Linguísticas](./baseStructure.md#sintaxe)
+   1. [select](./clauses/select.md)

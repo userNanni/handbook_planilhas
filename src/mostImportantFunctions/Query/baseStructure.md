@@ -20,10 +20,26 @@ A sintaxe aqui é simples basicamente temos esses 3 parâmetros:
 ```
 
 1. dados (obrigatório):  
-   Aqui estará o Banco de dados que será usado pela Função
+   Aqui estará o Banco de dados que será usado pela Função. Basicamente, selecioe todo o intervalo que tiver dados
+   > Um aviso muito importante, como utilizaremos a Letra da Coluna para nos orientarmos, se for adicionar novas Colunas, faça isso no final da sua tabela, depois na consulta podemos ordernar da maneira como quisermos.
 2. consulta (meio que obrigatório):  
-   A parte mais difícil obviamente de aprender, aqui que a mágica ocorre.
-   > OK, mas porque meio que obrigatório, se nada for escrito na consulta o Google Sheets irá considerar o mesmo que select \*, portanto retornará todos os dados
-3. cabeçalho (como podem ver pelos [] totalmente facultativo):
+   A parte mais difícil obviamente de aprender, aqui que a mágica ocorre. POr isso, foi dedicado todo [Estrutura da Consulta](./baseStructure.md#estrutura-da-consulta).
+   > OK, mas porque (meio que obrigatório), se nada for escrito na consulta o Google Sheets irá considerar o mesmo que select \*, portanto retornará todos os dados.
+3. cabeçalho (como podem ver pelos [] totalmente facultativo):  
+   Aqui basicamente vai ser passado para função quantas linhas serão ignoradas como cabeçalho, realmente simples, porém é recomendável testar algumas vezes para compreender como é contado isso.
 
 ## Estrutura da Consulta
+
+A função query é composta por diversas [Cláusulas Linguísticas](https://developers.google.com/chart/interactive/docs/querylanguage?sjid=1226402367079700006-SA&hl=pt-br#language-clauses) sendo cada ma responsável por uma ação diferente, como bem dito na documentação, elas **devem** estar na seguinte **ordem**:
+| Cláusula | Uso |
+| ------ | ------------------------------ |
+| select | Seleciona quais colunas serão retornadas e em que ordem. Se omitido, todas as colunas da tabela serão retornadas na ordem padrão. |
+| where | Retorna apenas as linhas que correspondem a uma condição. Se omitido, todas as linhas são retornadas. |
+| group | by Agrega valores em linhas. |
+| pivot | Transforma valores distintos em colunas em novas colunas. |
+| order | by Classifica linhas por valores em colunas. |
+| limit | Limita o número de linhas retornadas. |
+| offset | Ignora um determinado número de primeiras linhas. |
+| label | Define os rótulos das colunas. |
+| format | Formata os valores em determinadas colunas usando determinados padrões de formatação. |
+| options | Define opções adicionais. |
