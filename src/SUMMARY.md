@@ -24,8 +24,10 @@
   - [Estrutura Básica](./mostImportantFunctions/Query/baseStructure.md)
 
     - [select](./mostImportantFunctions/Query/clauses/select.md)
+    - [where](./mostImportantFunctions/Query/clauses/where.md)
 
   - [Estrutura Mista](./mostImportantFunctions/Query/mixedStructure.md)
+  - [Funções de Manipulação de Dados](./mostImportantFunctions/Query/datamanipulationfunctions.md)
 
 - [XLookup](./mostImportantFunctions/xLookup.md)
 

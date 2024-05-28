@@ -11,3 +11,5 @@ Mas primeiro vamos conhecer alguns conceitos dessa linguagem:
 1. [Estrutura Básica](./baseStructure.md)
 2. [Cláusulas Linguísticas](./baseStructure.md#sintaxe)
    1. [select](./clauses/select.md)
+   2. [where](./clauses/where.md)
+3. [Estrutura Mista](./mixedStructure.md)
