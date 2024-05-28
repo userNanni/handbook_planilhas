@@ -25,15 +25,16 @@ A sintaxe aqui é simples basicamente temos esses 3 parâmetros:
 2. consulta (meio que obrigatório):  
    A parte mais difícil obviamente de aprender, aqui que a mágica ocorre. POr isso, foi dedicado todo [Estrutura da Consulta](./baseStructure.md#estrutura-da-consulta).
    > OK, mas porque (meio que obrigatório), se nada for escrito na consulta o Google Sheets irá considerar o mesmo que select \*, portanto retornará todos os dados.
+   > Além disso, a consulta deve estar entre aspas, porém pode ser reultado de uma concatenação de formulas comuns do Sheets e consultas como pode ser visto em [Estruturas Mistas](./mixedStructure.md).
 3. cabeçalho (como podem ver pelos [] totalmente facultativo):  
    Aqui basicamente vai ser passado para função quantas linhas serão ignoradas como cabeçalho, realmente simples, porém é recomendável testar algumas vezes para compreender como é contado isso.
 
 ## Estrutura da Consulta
 
-A função query é composta por diversas [Cláusulas Linguísticas](https://developers.google.com/chart/interactive/docs/querylanguage?sjid=1226402367079700006-SA&hl=pt-br#language-clauses) sendo cada ma responsável por uma ação diferente, como bem dito na documentação, elas **devem** estar na seguinte **ordem**:
+A função query é composta por diversas [Cláusulas Linguísticas](https://developers.google.com/chart/interactive/docs/querylanguage?sjid=1226402367079700006-SA&hl=pt-br#language-clauses) sendo cada uma responsável por uma ação diferente, como bem dito na documentação, elas **somente** podem aparecer **uma vez** e **devem** estar na seguinte **ordem**:
 | Cláusula | Uso |
 | ------ | ------------------------------ |
-| select | Seleciona quais colunas serão retornadas e em que ordem. Se omitido, todas as colunas da tabela serão retornadas na ordem padrão. |
+| [select](./clauses/select.md) | Seleciona quais colunas serão retornadas e em que ordem. Se omitido, todas as colunas da tabela serão retornadas na ordem padrão. |
 | where | Retorna apenas as linhas que correspondem a uma condição. Se omitido, todas as linhas são retornadas. |
 | group | by Agrega valores em linhas. |
 | pivot | Transforma valores distintos em colunas em novas colunas. |

@@ -27,3 +27,8 @@ Dados Não Estruturados são aqueles que , ao contrário dos [Estruturados](./DB
 ### Semi-Estruturados
 
 Os dados semi-estruturados residem em um meio termo entre os dados estruturados e não estruturados, apresentando características de ambos. Imagine-os como dados organizados, mas sem a rigidez de um banco de dados relacional.
+
+
+## Tipagem dos Dados
+
+### String
