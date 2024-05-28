@@ -1,7 +1,7 @@
 # Epílogo
 
-[Sobre o Núcleo](./NEGE2C.md)
-[Sobre o Livro](./Epílogo.md)
+[Sobre o núcleo](./NEGE2C.md)
+[Sobre o livro](./Epílogo.md)
 
 ---
 
@@ -21,13 +21,13 @@
 
 - [Query](./mostImportantFunctions/Query/query.md)
 
-  - [Estrutura Básica](./mostImportantFunctions/Query/baseStructure.md)
+  - [Estrutura básica](./mostImportantFunctions/Query/baseStructure.md)
 
     - [select](./mostImportantFunctions/Query/clauses/select.md)
     - [where](./mostImportantFunctions/Query/clauses/where.md)
 
-  - [Estrutura Mista](./mostImportantFunctions/Query/mixedStructure.md)
-  - [Funções de Manipulação de Dados](./mostImportantFunctions/Query/datamanipulationfunctions.md)
+  - [Estrutura mista](./mostImportantFunctions/Query/mixedStructure.md)
+  - [Funções de manipulação de dados](./mostImportantFunctions/Query/datamanipulationfunctions.md)
 
 - [XLookup](./mostImportantFunctions/xLookup.md)
 
@@ -36,3 +36,8 @@
 # Práticas
 
 - [Query](./practices/query.md)
+
+# Estudo de Caso
+
+- [Sumário de casos](./Study%20Cases/studyCases.md)
+  - [O caso mais difícil @Nanni](./Study%20Cases/mostDifficultProblem.md)
