@@ -32,9 +32,15 @@ Os dados semi-estruturados residem em um meio termo entre os dados estruturados 
 
 ### String
 
+É uma cadeia de caracteres. É utilizado para representar de letras a textos.
+
 ### Int
 
+É um número inteiro.
+
 ### Float
+
+É um ponto Flutuante. Basicamente um número não inteiro
 
 ## Estruturas de Dados
 
