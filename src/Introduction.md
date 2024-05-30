@@ -14,16 +14,6 @@ _Como produzir mais fácil e rápido (de graça)_
 
 Compreender, em conceitos gerais, sobre planilhas online, Google Planilhas
 
-### Roteiro
-
-- [Onde Aprender](Introduction.md#onde-aprender)
-  - [Documentação](Introduction.md#documentação)
-  - [PBL](Introduction.md#pbl)
-  - [Prática](Introduction.md#prática)
-- [Noções Gerais](Introduction.md#noções-gerais)
-  - [Integrações](Introduction.md#integrações)
-  - [Algumas dicas](Introduction.md#algumas-dicas)
-
 ---
 
 - ## Onde Aprender
@@ -43,3 +33,5 @@ Compreender, em conceitos gerais, sobre planilhas online, Google Planilhas
   - ### PBL
 
     Project Based Learning (PBL) é uma das técnicas mais conhecidas e efetivas para aprender. Basicamente consiste em iniciar projetos para colocar em prática os conhecimentos que querem ser adquiridos.
+
+    > Para isso foi criada toda a seção de Prática e Estudos de Caso

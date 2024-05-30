@@ -35,7 +35,7 @@ A função query é composta por diversas [Cláusulas Linguísticas](https://dev
 | Cláusula | Uso |
 | ------ | ------------------------------ |
 | [select](./clauses/select.md) | Seleciona quais colunas serão retornadas e em que ordem. Se omitido, todas as colunas da tabela serão retornadas na ordem padrão. |
-| where | Retorna apenas as linhas que correspondem a uma condição. Se omitido, todas as linhas são retornadas. |
+| [where](./clauses/where.md) | Retorna apenas as linhas que correspondem a uma condição. Se omitido, todas as linhas são retornadas. |
 | group | by Agrega valores em linhas. |
 | pivot | Transforma valores distintos em colunas em novas colunas. |
 | order | by Classifica linhas por valores em colunas. |
