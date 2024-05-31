@@ -19,6 +19,6 @@ Deixo aqui alguns links para que conheçam mais sobre minha atuação e me conta
 
 E como todo bom programador deixo aqui meu GitHub ( a maior parte dos meus projetos não estão lá, por serem dedicados a FAB, lá estão presentes apenas os mais públicos, mas isso não impede que eu descreva aqui a arquitetura que construi para esses outros projetos )
 
-- [GitHub](https://github.com/userNanni)
+- [GitHub <img src="https://avatars.githubusercontent.com/u/121840951?v=4" alt="Nanni Icon" style="height: 2rem; width: 2rem; border-radius: 1rem"/>](https://github.com/userNanni)
 
 ---
