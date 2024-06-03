@@ -1,7 +1,7 @@
 # Epílogo
 
 [Sobre o núcleo](./NEGE2C.md)
-[Sobre o livro](./Epílogo.md)
+[Sobre o livro](./Prologo.md)
 
 ---
 
