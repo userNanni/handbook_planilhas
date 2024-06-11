@@ -1,23 +1,23 @@
-# Epílogo
+# HandBook de Planilhas
 
 [Sobre o núcleo](./NEGE2C.md)
 [Sobre o livro](./Prologo.md)
 
 ---
 
-# Sumário
+## Sumário
 
 - [Introdução](./Introduction.md)
 
 ---
 
-# Bancos de Dados
+## Bancos de Dados
 
 - [Conceitos úteis](./DBConcepts.md)
 
 ---
 
-# Funções Importantes
+## Funções Importantes
 
 - [Query](./mostImportantFunctions/Query/query.md)
 
@@ -33,11 +33,11 @@
 
 ---
 
-# Práticas
+## Práticas
 
 - [Query](./practices/query.md)
 
-# Estudo de Caso
+## Estudo de Caso
 
 - [Sumário de casos](./Study%20Cases/studyCases.md)
   - [O caso mais difícil @Nanni](./Study%20Cases/mostDifficultProblem.md)

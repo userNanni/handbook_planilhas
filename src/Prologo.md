@@ -13,7 +13,7 @@ Se quiserem podem me contatar para escrever tópicos com dicas aqui de como dese
 
 Deixo aqui alguns links para que conheçam mais sobre minha atuação e me contatem:
 
-- email: nanniintfab@gmail.com
+- email: <nanniintfab@gmail.com>
 - Lattes: [Currículo](https://lattes.cnpq.br/2658031034262091)
 - LinkedIn: [Conta Profissional](https://www.linkedin.com/in/jo%C3%A3o-pedro-santos-nanni-328857285/)
 

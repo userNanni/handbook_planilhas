@@ -15,7 +15,7 @@ Aqui não há segredo, e é tudo tão óbvio quanto descrito na [Documentação]
 
 A sintaxe aqui é simples basicamente temos esses 3 parâmetros:
 
-```
+``` sheets
 =QUERY(dados; consulta; [cabecalhos])
 ```
 

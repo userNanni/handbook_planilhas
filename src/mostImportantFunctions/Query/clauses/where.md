@@ -20,7 +20,7 @@ Existem 7 operadores simples:
 
 Quando falamos da filtragem de valores nulos, deixamos de usar a igualdade em si, como em:
 
-```
+``` sheets
 =Query(Dados;"select * where A = ''")
 ```
 
@@ -28,7 +28,7 @@ Quando falamos da filtragem de valores nulos, deixamos de usar a igualdade em si
 
 E passamos a utilizar os operadores `is null` ou `is not null`
 
-```
+``` sheets
 =Query(Dados;"select * where A is not null")
 ```
 
@@ -59,6 +59,6 @@ Basicamente o tipo de filtro mais básico
 
 ## Juntando Filtros com Operadores Lógicos
 
-```
+``` sheets
 =QUERY(dados;"select A, B")
 ```

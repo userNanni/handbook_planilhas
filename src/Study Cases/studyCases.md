@@ -4,7 +4,7 @@ Esse Capítulo se dedica a explicar como foram resolvidas e trabalhadas todas as
 
 > Aqui podem ter diferentes autores, com diferentes pensamentos e resoluções. por isso o nome da página era carregar um @'nome do autor'.
 
-## Sumário de Casos:
+## Sumário de Casos
 
 > @Nanni
 >

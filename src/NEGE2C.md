@@ -1,6 +1,6 @@
-![Logo do NEGE²C](./Images/Bolacha%20NEGEC.svg)
-
 # Sobre o Núcleo
+
+![Logo do NEGE²C](./Images/Bolacha%20NEGEC.svg)
 
 ---
 
