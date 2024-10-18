@@ -16,16 +16,16 @@ Aqui não há segredo, e é tudo tão óbvio quanto descrito na [Documentação]
 A sintaxe aqui é simples basicamente temos esses 3 parâmetros:
 
 ``` sheets
-=QUERY(dados; consulta; [cabecalhos])
+=QUERY(dados; consulta; [cabeçalhos])
 ```
 
 1. dados (obrigatório):  
-   Aqui estará o Banco de dados que será usado pela Função. Basicamente, selecioe todo o intervalo que tiver dados
-   > Um aviso muito importante, como utilizaremos a Letra da Coluna para nos orientarmos, se for adicionar novas Colunas, faça isso no final da sua tabela, depois na consulta podemos ordernar da maneira como quisermos.
+   Aqui estará o Banco de dados que será usado pela Função. Basicamente, selecione todo o intervalo que tiver dados
+   > Um aviso muito importante, como utilizaremos a Letra da Coluna para nos orientarmos, se for adicionar novas Colunas, faça isso no final da sua tabela, depois na consulta podemos ordenar da maneira como quisermos.
 2. consulta (meio que obrigatório):  
    A parte mais difícil obviamente de aprender, aqui que a mágica ocorre. POr isso, foi dedicado todo [Estrutura da Consulta](./baseStructure.md#estrutura-da-consulta).
    > OK, mas porque (meio que obrigatório), se nada for escrito na consulta o Google Sheets irá considerar o mesmo que select \*, portanto retornará todos os dados.
-   > Além disso, a consulta deve estar entre aspas, porém pode ser reultado de uma concatenação de formulas comuns do Sheets e consultas como pode ser visto em [Estruturas Mistas](./mixedStructure.md).
+   > Além disso, a consulta deve estar entre aspas, porém pode ser resultado de uma concatenação de formulas comuns do Sheets e consultas como pode ser visto em [Estruturas Mistas](./mixedStructure.md).
 3. cabeçalho (como podem ver pelos [] totalmente facultativo):  
    Aqui basicamente vai ser passado para função quantas linhas serão ignoradas como cabeçalho, realmente simples, porém é recomendável testar algumas vezes para compreender como é contado isso.
 

@@ -1,6 +1,6 @@
 # O Problema mais difícil de Planilhas que já resolvi
 
-> Digo que esse foi o problema mais dícifil, por ser um dos momentos que mais enfrentei barreiras para resolver, tive que aprender algumas formulas novas que até o segundo semestre de 2022 não existiam e ainda fiquei aproximadamente 8 horas pensando na primeira parte do problema, teorizando e desenhando na mão todo o sistema.
+> Digo que esse foi o problema mais difícil, por ser um dos momentos que mais enfrentei barreiras para resolver, tive que aprender algumas formulas novas que até o segundo semestre de 2022 não existiam e ainda fiquei aproximadamente 8 horas pensando na primeira parte do problema, teorizando e desenhando na mão todo o sistema.
 
 ## Vamos setar nossa ambiente
 

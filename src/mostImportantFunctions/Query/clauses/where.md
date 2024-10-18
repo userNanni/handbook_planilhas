@@ -1,6 +1,6 @@
 # where
 
-A segunda das [Cláusulas Linguísticas](https://developers.google.com/chart/interactive/docs/querylanguage?sjid=1226402367079700006-SA&hl=pt-br#language-clauses) e a mais compelxa delas, basicamente estamos falando de um filtro. Nesse caso, uma das maneiras de dividir como essa função funciona é sobre o que está sendo filtrado, e sobre os operadores:
+A segunda das [Cláusulas Linguísticas](https://developers.google.com/chart/interactive/docs/querylanguage?sjid=1226402367079700006-SA&hl=pt-br#language-clauses) e a mais complexa delas, basicamente estamos falando de um filtro. Nesse caso, uma das maneiras de dividir como essa função funciona é sobre o que está sendo filtrado, e sobre os operadores:
 
 ## Operadores de Comparação Simples
 
@@ -56,7 +56,7 @@ Basicamente o tipo de filtro mais básico
 ## Filtrando textos estáticos
 
 **Por que um tópico novo para textos estáticos ?**  
-Quando tratamos de [strings](../../../DBConcepts.md#string) dentro da busca da função QUERY, por ser uma busca de dados estruturados, em que há diferença entre os tipos, necessitamos especificar se o que irá ser comparado é um texto ou se se enquandra em outos tipos.
+Quando tratamos de [strings](../../../DBConcepts.md#string) dentro da busca da função QUERY, por ser uma busca de dados estruturados, em que há diferença entre os tipos, necessitamos especificar se o que irá ser comparado é um texto ou se se enquadra em outros tipos.
 
 Portanto, na comparação com [strings](../../../DBConcepts.md#string) colocamos o texto entre `'`, famosas aspas simples.
 

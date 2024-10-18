@@ -1,6 +1,6 @@
 # Query
 
-Uma das, se não a **Mais Importante** das Funções do Sheets, e aqui vai o porquê: A função query permite passar qualquer intervlo como se fosse um banco de dados utilizando da [linguagem de consultas da API de visualização do Google](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br) para fazer consultas, assim como é utilizado o SQL em outros tipos de Bancos de Dados Estruturados Relacionais.
+Uma das, se não a **Mais Importante** das Funções do Sheets, e aqui vai o porquê: A função query permite passar qualquer intervalo como se fosse um banco de dados utilizando da [linguagem de consultas da API de visualização do Google](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br) para fazer consultas, assim como é utilizado o SQL em outros tipos de Bancos de Dados Estruturados Relacionais.
 
 > Você programador que já utilizou SQL. Lembra de todo poder que aquela linguagem te dava ? Lembra do delete sem where na production que quase te mandou embora ? Sim, quase tudo aquilo pode ser chamado aqui, deixe para traz o terror de utilizar funções, poderá finalmente fazer uma linha de código, porém ainda dentro dessa função.
 ---

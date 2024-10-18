@@ -2,7 +2,7 @@
 
 ## Tipos de Dados em Bancos de Dados
 
-Quando falamos dos tipos de dados que podem estar em um banco de dados há várias maneiras de classicá-los, um desses meios é quanto a sua forma e rigidez de estruturação. Nesse tipo de classificação pode assumir 3 tipos:
+Quando falamos dos tipos de dados que podem estar em um banco de dados há várias maneiras de classificá-los, um desses meios é quanto a sua forma e rigidez de estruturação. Nesse tipo de classificação pode assumir 3 tipos:
 
 1. [Estruturados](./DBConcepts.md#estruturados)
 2. [Não Estruturados](./DBConcepts.md#não-estruturados)
@@ -52,7 +52,7 @@ Os dados semi-estruturados residem em um meio termo entre os dados estruturados 
 
 ### Array
 
-Uma das estruturas mais versáteis de dados, consistindo basicamente em uma **sequência de elementos** que podem ser acessados por seu indíce.
+Uma das estruturas mais versáteis de dados, consistindo basicamente em uma **sequência de elementos** que podem ser acessados por seu índice.
 
 > Também podem ser chamadas pelo nome em português **arranjo**, e divididas em alguns tipos básicos como o:
 >

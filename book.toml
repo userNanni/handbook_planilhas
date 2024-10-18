@@ -6,4 +6,7 @@ src = "src"
 title = "Handbook de Planilhas"
 [output.html]
 mathjax-support = true
+smart-punctuation = true
+copy-fonts = true
+additional-css = ["custom.css"]
 
