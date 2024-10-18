@@ -1,12 +1,12 @@
 # O Problema mais difícil de Planilhas que já resolvi
 
-> Digo que esse foi o problema mais difícil, por ser um dos momentos que mais enfrentei barreiras para resolver, tive que aprender algumas formulas novas que até o segundo semestre de 2022 não existiam e ainda fiquei aproximadamente 8 horas pensando na primeira parte do problema, teorizando e desenhando na mão todo o sistema.
+> Digo que esse foi o problema mais difícil, por ser um dos momentos que mais enfrentei barreiras para resolver, tive que aprender algumas formulas novas que até o segundo semestre de 2022 não existiam e fiquei aproximadamente 8 horas pensando na primeira parte do problema, teorizando e desenhando na mão toda solução.
 
-## Vamos setar nossa ambiente
+## Vamos setar nosso ambiente
 
-A situação é seguinte:
+A situação é a seguinte:
 
-Serão lançados registros de situações o corridas com diversas pessoas. Esses registros serão lançados por meio do Google Forms e integrados diretamente em uma página do Google Planilhas.
+Serão lançados registros de situações ocorridas com diversas pessoas. Esses registros serão lançados por meio do Google Forms e integrados diretamente em uma página do Google Planilhas.
 
 > Até aqui temos uma situação muito simples, calma que complica.
 
