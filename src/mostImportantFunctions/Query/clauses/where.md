@@ -21,7 +21,7 @@ Existem 7 operadores simples:
 Quando falamos da filtragem de valores nulos, deixamos de usar a igualdade em si, como em:
 
 ```sheets
-=Query(Dados;"select * where A = ''")
+=QUERY(Dados;"select * where A = ''")
 ```
 
 > O exemplo de cima seria uma comparação com um string vazio
@@ -29,7 +29,7 @@ Quando falamos da filtragem de valores nulos, deixamos de usar a igualdade em si
 E passamos a utilizar os operadores `is null` ou `is not null`
 
 ```sheets
-=Query(Dados;"select * where A is not null")
+=QUERY(Dados;"select * where A is not null")
 ```
 
 ## Operadores de Comparação Complexos
@@ -49,7 +49,20 @@ Exitem 5 operadores complexos:
 
 Basicamente o tipo de filtro mais básico
 
+```sheets
+=QUERY(Dados;"select * where A = 100")
+```
+
 ## Filtrando textos estáticos
+
+**Por que um tópico novo para textos estáticos ?**  
+Quando tratamos de [strings](../../../DBConcepts.md#string) dentro da busca da função QUERY, por ser uma busca de dados estruturados, em que há diferença entre os tipos, necessitamos especificar se o que irá ser comparado é um texto ou se se enquandra em outos tipos.
+
+Portanto, na comparação com [strings](../../../DBConcepts.md#string) colocamos o texto entre `'`, famosas aspas simples.
+
+```sheets
+=QUERY(Dados;"select * where A = 'hello world'")
+```
 
 ## Filtrando conteúdos dinâmicos ou referenciados
 

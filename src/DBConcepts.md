@@ -34,6 +34,12 @@ Os dados semi-estruturados residem em um meio termo entre os dados estruturados 
 
 É uma cadeia de caracteres. É utilizado para representar de letras a textos.
 
+### Boolean
+
+É um valor que somente pode assumir 0 ou 1, verdadeiro ou falso.
+
+> Também pode ser chamado de lógico e tem seu nome atribuído em homenagem a George Boole
+
 ### Int
 
 É um número inteiro.
@@ -45,3 +51,24 @@ Os dados semi-estruturados residem em um meio termo entre os dados estruturados 
 ## Estruturas de Dados
 
 ### Array
+
+Uma das estruturas mais versáteis de dados, consistindo basicamente em uma **sequência de elementos** que podem ser acessados por seu indíce.
+
+> Também podem ser chamadas pelo nome em português **arranjo**, e divididas em alguns tipos básicos como o:
+>
+> 1. Vetor: um array unidimensional; e
+> 2. Matriz: um array bidimensional, basicamente um conjunto de vetores.
+
+```JavaScript
+const numerosPrimos = [2,3,5,7,11,13,17]
+```
+
+### Pilha
+
+Assim como a array é uma estrutura de dados que pose ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**U**ltimo que **E**ntra, **P**rimeiro que **S**ai).
+
+> Também podem ser chamadas pelo nome em inglês **stack**, funcionam exatamente igual uma filha de livros ou roupas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
+
+### Fila
+
+### Deque
