@@ -2,13 +2,14 @@
 
 ## Tipos de Dados em Bancos de Dados
 
-Quando falamos dos tipos de dados que podem estar em um banco de dados há várias maneiras de classificá-los, um desses meios é quanto a sua forma e rigidez de estruturação. Nesse tipo de classificação pode assumir 3 tipos:
+Quando falamos dos tipos de dados que podem estar em um banco de dados, existem várias maneiras de classificá-los. Um desses meios é quanto a sua forma e rigidez de estruturação. Essa classificação consiste em 3 tipos:
 
 1. [Estruturados](./DBConcepts.md#estruturados)
 2. [Não Estruturados](./DBConcepts.md#não-estruturados)
 3. [Semi-Estruturados](./DBConcepts.md#semi-estruturados)
 
-mas no que isso vai me ajudar nas planilhas. O Google Sheets força automaticamente as tipagens de cada uma das Colunas, ou atributos.
+<!-- **Mas no que isso vai me ajudar nas planilhas?**
+O Google Sheets força automaticamente os tipos de cada uma das colunas, ou atributos. -->
 
 ### Estruturados
 

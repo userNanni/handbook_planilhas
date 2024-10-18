@@ -10,10 +10,6 @@ $$
  \text{Eficiência} = {\text{Trabalho} \over \text{Tempo Gasto}}
 $$
 
-### Objetivo
-
-Compreender, em conceitos gerais, sobre planilhas online, Google Planilhas
-
 ## Onde Aprender
 
 Um dos principais pontos que precisam ser entendidos para qualquer assunto é como continuar o aprendizado, principalmente para além das aulas.
