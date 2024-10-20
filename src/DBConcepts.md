@@ -73,3 +73,19 @@ Assim como a array é uma estrutura de dados que pose ser simplificada como uma 
 ### Fila
 
 ### Deque
+
+## A estrutura (propriamente dita) de um banco de dados relacional
+
+### Tabelas
+
+### Registros
+
+### Atributos
+
+#### Chaves
+
+### Entidades
+
+### Relacionamentos
+
+### D.E.R.
