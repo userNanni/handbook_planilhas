@@ -64,6 +64,8 @@ Uma das estruturas mais versáteis de dados, consistindo basicamente em uma **se
 const numerosPrimos = [2,3,5,7,11,13,17]
 ```
 
+#### Métodos de Array
+
 ### Pilha
 
 Assim como a array é uma estrutura de dados que pose ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**U**ltimo que **E**ntra, **P**rimeiro que **S**ai).

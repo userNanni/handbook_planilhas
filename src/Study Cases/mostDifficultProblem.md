@@ -84,18 +84,24 @@ Esse é dos problemas o mais simples. Se a array está disposta como um CSV(comm
 =SPLIT(Observados1; ",")
 ```
 
+Porém isso separa Horizontalmente, então precisamos aplicar o TRANSPOSE, para transpor os dados da matriz resultado.
+
+```Sheets
+=TRANSPOSE(SPLIT(Observados1; ","))
+```
+
 1. [x] **Primeira Tarefa check**
 
 ### 2. Como repetir os outros dados
 
-Se na célula observados1 eu tenho 4 pessoas, quando for usado a função SPLIT nela isso gerará **4** células. Portanto, é necessário que o observador, por exemplo, se repita **4** vezes também. então posso usar a fórmula REPT:
+Se na célula observados1 eu tenho 4 pessoas, quando for usado a função [SPLIT](https://support.google.com/docs/answer/3094136) nela isso gerará **4** células. Portanto, é necessário que o observador, por exemplo, se repita **4** vezes também. então posso usar a fórmula REPT:
 
 ```Sheets
 =REPT(observador; X)
 ```
 
 **mas qual será o número de repetições (`X`)?**  
-Se quando é utilizado o SPLIT são gerados **4** e é necessário repetir as mesmas **4** vezes, pode-se contar quantas células o SPLIT gera e atribuir esse valor a `X`.
+Se quando é utilizado o [SPLIT](https://support.google.com/docs/answer/3094136) são gerados **4** e é necessário repetir as mesmas **4** vezes, pode-se contar quantas células o [SPLIT](https://support.google.com/docs/answer/3094136) gera e atribuir esse valor a `X`.
 
 X = COUNTA(SPLIT(Observados1;","))
 
@@ -120,10 +126,90 @@ Substituindo na fórmula, obtém-se:
 =REPT(CONCATENATE(observador1; ";"); COUNTA(SPLIT(Observados1;",")))
 ```
 
-Então para finalizar essa etapa basta apenas dividir o resultado da última fórmula em vários registros, então aplicando a mesma lógica do atributo observados, obtém-se:
+Então para finalizar essa etapa basta apenas dividir, e verticalizar, o resultado da última fórmula em vários registros, então aplicando a mesma lógica do atributo observados, obtém-se:
 
 ```Sheets
-=SPLIT(REPT(CONCATENATE(observador1; ";"); COUNTA(SPLIT(Observados1;","))); ";")
+=TRANSPOSE(SPLIT(REPT(CONCATENATE(observador1; ";"); COUNTA(SPLIT(Observados1;","))); ";"))
 ```
 
 2. [x] **Segunda Tarefa check**
+
+### 3. Como fazer isso para todos os registros
+
+> Apertem os cintos que agora fica **_PUNK_**
+
+A próxima etapa e replicar esse método para cada um dos registros.  
+Então dividimos nos dois tipos de conversões que estão sendo feitos:
+
+#### 3.1. separação simples
+
+O que se possuía antes era isso:
+
+```Sheets
+=TRANSPOSE(SPLIT(Observados1; ","))
+```
+
+porém o que é necessário agora é que seja separado todos os dados da coluna, portanto a solução adotado foi juntar todos antes e depois separá-los. Utilizando JOIN para unir todos esses dados:
+
+```Sheets
+=TRANSPOSE(SPLIT(JOIN(",";Observados:Observados); ","; FALSE;TRUE))
+```
+
+#### 3.2. separação dos outros atributos
+
+Dado que cada coluna pode ser entendida em si como um array, pode-se utilizar [métodos](../DBConcepts.md#array), como o [MAP](../mostImportantFunctions/MAP.md). O [MAP](../mostImportantFunctions/MAP.md) irá executar uma determinada função em todos os registros de um intervalo e retornar o valor naquela Célula.
+
+O que se possuía antes era isso:
+
+```Sheets
+=TRANSPOSE(SPLIT(REPT(CONCATENATE(observador1; ";"); COUNTA(SPLIT(Observados1;","))); ";"))
+```
+
+agora aplicando o [MAP](../mostImportantFunctions/MAP.md):
+
+```Sheets
+TRANSPOSE(SPLIT(JOIN(";";map(Observador:Observador ;Observado:Observado ;LAMBDA(rept_intervalo;split_intervalo;REPT(CONCATENATE(rept_on;";");COUNTA(SPLIT(split_on;", ";FALSE;TRUE))))));";";true;true))
+```
+
+#### 3.3 novos problemas encontrados na produção
+
+Durante as primeiras semanas de uso foi visto que a fórmula JOIN tem o limite de 50000 caracteres então foi pensada uma nova abordagem
+
+### 3.(new) Nova Abordagem para separar
+
+Ao invés de separar cada atributo individualmente com a formula que foi passada nos tópicos 3.1 e 3.2, foi percebido algo. O primeiro atributo (Carimbo de Data/Hora) ele é praticamente impossível de se repetir nas respostas do forms, portanto consigo inferir que:
+
+> Se um registro tem o Data e Hora X, ele se refere a um único lançamento
+> Se baseando nisso existe uma mudança de paradigma, o que deveria ser feito agora era separa repetindo apenas o carimbo de Data/Hora, separa de forma simples apenas os observados, e todos demais campos estariam vinculados pela função [XLOOKUP](../mostImportantFunctions/xLookup.md) à Data e Hora.
+
+As formulas ficariam assim:
+
+```Sheets
+TRANSPOSE(SPLIT(JOIN(";";map(Data/Hora:Data/Hora ;Observado:Observado ;LAMBDA(rept_intervalo;split_intervalo;REPT(CONCATENATE(rept_on;";");COUNTA(SPLIT(split_on;", ";FALSE;TRUE))))));";";true;true))
+```
+
+```Sheets
+=TRANSPOSE(SPLIT(JOIN(",";Observados:Observados); ","; FALSE;TRUE))
+```
+
+E as demais colunas um simples [XLOOKUP](../mostImportantFunctions/xLookup.md):
+
+```Sheets
+=XLOOKUP($Carimbo_Data/Hora1;Coletiva!$A:$A;Coletiva!B:B;)
+```
+
+Essa abordagem resolveu 95% dos problema relativo ao limite de caracteres da função JOIN. Portanto:
+
+3. [x] **Terceira Tarefa check**
+
+### 4. Juntando tudo
+
+Agora foi usado o simples método de junção de intervalos por {}
+
+```Sheets
+={Intervalo1:Intervalo1;Intervalo2:Intervalo2; ...}
+```
+
+4. [x] **Quarta Tarefa check**
+
+> Todos requisitos cumpridos, então Tarefa Concluída
