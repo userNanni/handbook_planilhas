@@ -68,11 +68,21 @@ const numerosPrimos = [2,3,5,7,11,13,17]
 
 ### Pilha
 
-Assim como a array é uma estrutura de dados que pose ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**U**ltimo que **E**ntra, **P**rimeiro que **S**ai).
+Assim como a array é uma estrutura de dados que pode ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**U**ltimo que **E**ntra, **P**rimeiro que **S**ai).
 
-> Também podem ser chamadas pelo nome em inglês **stack**, funcionam exatamente igual uma filha de livros ou roupas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
+> Também podem ser chamadas pelo nome em inglês **stack**, funcionam exatamente igual uma pilha de livros ou roupas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
+
+#### Exemplo: `Control+Z`:  
+ Quando voltamos alguma ação no computador, a primeira ação que será desfeita, foi a última que fizemos e assim por diante, até que essa pilha acabe.
 
 ### Fila
+
+Assim como a array é uma estrutura de dados que pode ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `FIFO` (**F**irst **I**n, **F**irst **O**ut) ou `PEPS` (**P**rimeiro que **E**ntra, **P**rimeiro que **S**ai).
+
+> Também podem ser chamadas pelo nome em inglês **queue**, funcionam exatamente igual uma fila pessoas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
+
+#### Exemplo: Consumo de dados do **_Whatsapp_**:  
+ Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mensagens, elas chegam na ordem, um dos métodos de fazer isso em mensageiros é aplicando filas. A primeira mensagem que é enviada é a primeira que será recebida, mesmo que acumulem muitas mensagem sem receber por um tempo.
 
 ### Deque
 
