@@ -94,10 +94,16 @@ Assim como a array é uma estrutura de dados que pode ser simplificada como uma 
 
 ### Atributos
 
-#### Chaves
+#### Chaves primárias (Primary keys)
+
+As chaves primárias são um dos tipos de atributos, elas são utilizadas para identificar um certo registro. Essas chaves primárias, podem ser simples (compostas de apenas um atributo), ou compostas (resultado da união de vários atributos).
+> Em bancos de dados relacionais as chaves primárias precisam ser únicas, a fim de possibilitar a identificação dos registros, os quais elas identificam.
 
 ### Entidades
 
 ### Relacionamentos
 
 ### D.E.R.
+
+O diagrama entidade relacionamento (DER) é um dos meios possíveis para visualizar um banco de dados. Essa visualização possuem as tabelas e seus atributos, bem como a relação que esses atributos possuem entre si.
+Então no DER estarão sendo demonstradas as relações de `1 para 1` e `1 para muitos` entre as chaves primárias e estrangeiras.
