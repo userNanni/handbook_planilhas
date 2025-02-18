@@ -9,11 +9,11 @@ Quando falamos dos **tipos de dados** que podem estar em um **banco de dados**, 
 3. [Semi-Estruturados](./DBConcepts.md#semi-estruturados)
 
 > **Mas no que isso vai me ajudar nas planilhas?**
-> O Google Sheets **força** automaticamente os **tipos** de cada uma das colunas, ou atributos.
+> O Google Sheets **força** automaticamente os **tipos** de cada uma das colunas, ou [Atributos](./DBConcepts.md#atributos).
 
 ### Estruturados
 
-Dados **Estruturados** são aqueles que tem uma **estrutura** que é geralmente **pré-definida** e continua **rígida** em toda a aplicação. Isso permite **segurança** e **certeza** em saber que tipo de dados são esperados em cada um dos **atributos**, permitindo que sejam aplicados métodos de agregação específicos como Soma ou outras formas que são sensíveis a certas tipagens.
+Dados **Estruturados** são aqueles que tem uma **estrutura** que é geralmente **pré-definida** e continua **rígida** em toda a aplicação. Isso permite **segurança** e **certeza** em saber que tipo de dados são esperados em cada um dos **[Atributos](./DBConcepts.md#atributos)**, permitindo que sejam aplicados métodos de agregação específicos como Soma ou outras formas que são sensíveis a certas tipagens.
 
 #### SQL
 
@@ -83,6 +83,7 @@ Assim como a array é uma estrutura de dados que pode ser simplificada como uma 
 > Também podem ser chamadas pelo nome em inglês **queue**, funcionam exatamente igual uma fila pessoas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
 
 #### Exemplo: Consumo de dados do **_Whatsapp_**:
+
 Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mensagens, elas chegam na ordem, um dos métodos de fazer isso em mensageiros é aplicando filas. A primeira mensagem que é enviada é a primeira que será recebida, mesmo que acumulem muitas mensagem sem receber por um tempo.
 
 ### Deque
@@ -97,15 +98,40 @@ Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mens
 
 #### Chaves primárias (Primary keys)
 
-As chaves primárias são um dos tipos de atributos, elas são utilizadas para identificar um certo registro. Essas chaves primárias, podem ser simples (compostas de apenas um atributo), ou compostas (resultado da união de vários atributos).
+As chaves primárias são um dos tipos de [Atributos](./DBConcepts.md#atributos), elas são utilizadas para identificar um certo registro. Essas chaves primárias, podem ser simples (compostas de apenas um atributo), ou compostas (resultado da união de vários [Atributos](./DBConcepts.md#atributos)).
 
 > Em bancos de dados relacionais as chaves primárias precisam ser únicas, a fim de possibilitar a identificação dos registros, os quais elas identificam.
 
 ### Entidades
 
+Em um banco de dados, as tabelas são chamadas **Entidades**, sendo então compostas pelos mesmos [Atributos](./DBConcepts.md#atributos) e Registros
+
 ### Relacionamentos
 
-Em um banco de dados relacional estruturado, os **relacionamentos** são ligações entre tabelas baseadas em chaves primárias e chaves estrangeiras. Eles servem para conectar os dados de forma organizada e evitar redundâncias.
+Em um banco de dados relacional estruturado, os **relacionamentos** são **ligações** entre tabelas baseadas em **chaves** primárias e **chaves** estrangeiras. Eles servem para conectar os dados de forma organizada e evitar redundâncias. Ou seja, mostrar o que é um identificador comum em duas tabelas.
+
+#### Por Exemplo:
+
+**Tabela 1**
+
+| Nome  | telefone |
+| ----- | -------- |
+| João  | 1015     |
+| Pedro | 1016     |
+
+**Tabela 2**
+
+| Telefone | Preço |
+| -------- | ----- |
+| 1015     | 80    |
+| 1016     | 90    |
+
+Nesse caso, podemos relacionar o telefone das duas tabelas e inferir que:
+
+| Nome  | telefone | Preço |
+| ----- | -------- | ----- |
+| João  | 1015     | 80    |
+| Pedro | 1016     | 90    |
 
 ### D.E.R.
 

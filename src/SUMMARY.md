@@ -1,7 +1,7 @@
 # HandBook de Planilhas
 
-[Sobre o núcleo](./NEGE2C.md)
 [Sobre o livro](./Prologo.md)
+[Sobre o núcleo](./NEGE2C.md)
 
 ---
 
@@ -30,6 +30,9 @@
   - [Funções de manipulação de dados](./mostImportantFunctions/Query/datamanipulationfunctions.md)
 
 - [XLookup](./mostImportantFunctions/xLookup.md)
+- [Map](./mostImportantFunctions/MAP.md)
+- [ArrayFormula](./mostImportantFunctions/ARRAYFORMULA.md)
+- [GoogleFinance](./mostImportantFunctions/GoogleFinance.md)
 
 ---
 
