@@ -94,6 +94,8 @@ Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mens
 
 ### Registros
 
+**Registros** são as linhas da tabela, elas possuem os dados que seguem um esquema definido com a 
+
 ### Atributos
 
 #### Chaves primárias (Primary keys)
