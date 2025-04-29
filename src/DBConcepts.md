@@ -2,7 +2,7 @@
 
 ## Tipos de Dados em Bancos de Dados
 
-Quando falamos dos **tipos de dados** que podem estar em um **banco de dados**, existem várias maneiras de **classificá-los**. Um desses meios é quanto a sua forma e rigidez de estruturação. Essa classificação consiste em 3 tipos:
+Quando falamos dos **tipos de dados** que podem estar em um **banco de dados**, há várias maneiras de **classificá-los**. Um desses meios é quanto a sua forma e rigidez de estruturação. Essa classificação consiste em 3 tipos:
 
 1. [Estruturados](./DBConcepts.md#estruturados)
 2. [Não Estruturados](./DBConcepts.md#não-estruturados)
@@ -13,17 +13,17 @@ Quando falamos dos **tipos de dados** que podem estar em um **banco de dados**, 
 
 ### Estruturados
 
-Dados **Estruturados** são aqueles que tem uma **estrutura** que é geralmente **pré-definida** e continua **rígida** em toda a aplicação. Isso permite **segurança** e **certeza** em saber que tipo de dados são esperados em cada um dos **[Atributos](./DBConcepts.md#atributos)**, permitindo que sejam aplicados métodos de agregação específicos como Soma ou outras formas que são sensíveis a certas tipagens.
+Dados **Estruturados** são aqueles que possuem uma **estrutura** geralmente **pré-definida** e **rígida** em toda a aplicação. Isso permite **segurança** e **certeza** em saber que tipo de dados são esperados em cada um dos **[Atributos](./DBConcepts.md#atributos)**, permitindo a aplicação de métodos de agregação como soma e outros que dependem do tipo de dado.
 
 #### SQL
 
-Um dos maiores pontos relacionados ao uso de Dados estruturados é a **Linguagem de Busca Estruturada**, ou **Structure Query Language** (**SQL**), que é uma dos tipos de Linguagem mais comuns e úteis para fazer consultas e buscas em bancos de dados. No caso do Google Sheets, ela inspira a [linguagem de consultas da API de visualização do Google](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br).
+Um dos maiores pontos relacionados ao uso de Dados estruturados é a **Linguagem de Busca Estruturada**, ou **Structured Query Language** (**SQL**), uma das linguagens mais comuns e úteis para fazer consultas e buscas em bancos de dados. No caso do Google Sheets, ela inspira a [linguagem de consultas da API de visualização do Google](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br).
 
-> O **SQL** como foi referido é um **tipo de linguagem**, basicamente, não uma linguagem única em si, mas por quê ? Ao contrátrio do JavaScript por exemplo, o SQL tem várias sintaxes diferentes **dependendo de qual aplicação** que está usando, portanto o código que escrevo na Oracle é ligeiramente distinto do encontrado no **Access** ou no **MySQL**.
+> O **SQL** é uma das linguagens mais comuns para consulta em bancos de dados relacionais. Embora o SQL seja padronizado (por exemplo, SQL ANSI), cada sistema gerenciador (como MySQL, PostgreSQL, Oracle) pode adicionar dialetos próprios, com funções ou sintaxes específicas que não são necessariamente compatíveis entre os sistemas.
 
 ### Não Estruturados
 
-Dados **Não Estruturados** são aqueles que , ao contrário dos [Estruturados](./DBConcepts.md#estruturados) **não** possuem uma **estrutura rígida pré-definida**. Assim podem compor esses bancos de dados diferentes elementos, como fotos, vídeos e imagens. Estima-se que **80%** dos **dados** gerados atualmente na **internet** encontram-se nessa forma.
+Dados **Não Estruturados** são aqueles que, ao contrário dos [Estruturados](./DBConcepts.md#estruturados) **não** possuem uma **estrutura rígida pré-definida**. Assim podem compor esses bancos de dados diferentes elementos, como fotos, vídeos, áudios e documentos. Estima-se que **80%** dos **dados** gerados atualmente na **internet** encontram-se nessa forma.
 
 ### Semi-Estruturados
 
@@ -37,7 +37,7 @@ Dados **semi-estruturados** residem em um meio termo entre os dados estruturados
 
 ### Boolean
 
-É um valor que somente pode assumir **0** ou **1**, **verdadeiro** ou **falso**.
+É um valor que somente pode assumir **0** ou **1**, **verdadeiro** ou **falso**, representando, assim, estados lógicos ou condições
 
 > Também pode ser chamado de **lógico** e tem seu nome atribuído em homenagem a **George Boole**
 
@@ -47,7 +47,7 @@ Dados **semi-estruturados** residem em um meio termo entre os dados estruturados
 
 ### Float
 
-É um ponto Flutuante. Basicamente um **número não inteiro**.
+Um ponto flutuante é um número que pode conter parte decimal, ao contrário do inteiro (Int).
 
 ## Estruturas de Dados
 
@@ -68,7 +68,7 @@ const numerosPrimos = [2,3,5,7,11,13,17]
 
 ### Pilha
 
-Assim como a array é uma estrutura de dados que pode ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**U**ltimo que **E**ntra, **P**rimeiro que **S**ai).
+Assim como a array é uma estrutura de dados que pode ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `LIFO` (**L**ast **I**n, **F**irst **O**ut) ou `UEPS` (**Ú**ltimo que **E**ntra, **P**rimeiro que **S**ai).
 
 > Também podem ser chamadas pelo nome em inglês **stack**, funcionam exatamente igual uma pilha de livros ou roupas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
 
@@ -80,13 +80,15 @@ Quando voltamos alguma ação no computador, a primeira ação que será desfeit
 
 Assim como a array é uma estrutura de dados que pode ser simplificada como uma **sequência de elementos**, porém dessa vez ela obedece uma regra de leitura e escrita, a também famosa na logística, `FIFO` (**F**irst **I**n, **F**irst **O**ut) ou `PEPS` (**P**rimeiro que **E**ntra, **P**rimeiro que **S**ai).
 
-> Também podem ser chamadas pelo nome em inglês **queue**, funcionam exatamente igual uma fila pessoas na vida real, não é possível pegar o ultimo livro ou roupa sem tirar os que estão por cima.
+> Também podem ser chamadas pelo nome em inglês **queue**, funcionam exatamente igual uma fila de pessoas na vida real.
 
 #### Exemplo: Consumo de dados do **_Whatsapp_**:
 
-Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mensagens, elas chegam na ordem, um dos métodos de fazer isso em mensageiros é aplicando filas. A primeira mensagem que é enviada é a primeira que será recebida, mesmo que acumulem muitas mensagem sem receber por um tempo.
+Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mensagens, elas chegam na ordem, um dos métodos de fazer isso em mensageiros é aplicando filas. A primeira mensagem que é enviada é a primeira que será recebida, mesmo que acumulem muitas mensagens não recebidas por um tempo.
 
-### Deque
+### Deque  (Double Ended Queue)
+
+É uma fila que permite inserções e remoções tanto no início quanto no fim da estrutura. É útil em algoritmos que precisam de maior flexibilidade no controle da ordem dos elementos.
 
 ## A estrutura (propriamente dita) de um banco de dados relacional
 
@@ -94,7 +96,7 @@ Quando estamos usando o Whatsapp, apesar de enviarmos e recebermos diversas mens
 
 ### Registros
 
-**Registros** são as linhas da tabela, elas possuem os dados que seguem um esquema definido com a 
+**Registros** são as linhas da tabela, elas possuem os dados que seguem um esquema definido com base nos atributos da tabela.
 
 ### Atributos
 
@@ -106,7 +108,7 @@ As chaves primárias são um dos tipos de [Atributos](./DBConcepts.md#atributos)
 
 ### Entidades
 
-Em um banco de dados, as tabelas são chamadas **Entidades**, sendo então compostas pelos mesmos [Atributos](./DBConcepts.md#atributos) e Registros
+Em um banco de dados, as tabelas são chamadas **Entidades**, sendo então compostas pelos mesmos [Atributos](./DBConcepts.md#atributos) e [Registros](./DBConcepts.md#registros) tal como em uma tabela
 
 ### Relacionamentos
 
@@ -137,5 +139,5 @@ Nesse caso, podemos relacionar o telefone das duas tabelas e inferir que:
 
 ### D.E.R.
 
-O diagrama entidade relacionamento (DER) é um dos meios possíveis para visualizar um banco de dados. Essa visualização possuem as tabelas e seus atributos, bem como a relação que esses atributos possuem entre si.
-Então no DER estarão sendo demonstradas as relações de `1 para 1` e `1 para muitos` entre as chaves primárias e estrangeiras.
+O diagrama entidade relacionamento (DER) é um dos meios possíveis para visualizar um banco de dados. Essa visualização possui as tabelas e seus atributos, bem como a relação que esses atributos possuem entre si.
+Então no DER estarão sendo demonstradas as relações de `1 para 1`, `1 para muitos` ou `muitos para muitos` entre as chaves primárias e estrangeiras.
