@@ -1,0 +1,158 @@
+---
+id: arrayformula
+title: ARRAYFORMULA
+sidebar_label: ARRAYFORMULA
+slug: /funcoes/arrayformula
+description: Aplique fórmulas a intervalos inteiros no Google Sheets de forma automática (sem arrastar), com padrões para cabeçalho, evitar linhas vazias e dicas de performance.
+---
+
+# ARRAYFORMULA
+
+Às vezes surge a dúvida:
+
+> Como aplicar uma fórmula na coluna inteira sem precisar arrastar para baixo?
+
+A função `ARRAYFORMULA` permite que uma única fórmula “se expanda” automaticamente sobre um intervalo de linhas, poupando tempo e reduzindo erros quando novas linhas são adicionadas.
+
+:::tip Quando usar
+
+- Para aplicar a mesma lógica em todas as linhas de uma tabela.
+- Para “espalhar” transformações de texto, datas, números, buscas, etc.
+- Para tornar a planilha mais resiliente a inserções de novas linhas.
+  :::
+
+:::caution Separadores regionais
+Nos exemplos em PT-BR uso “;” como separador. Em EN-US troque por “,”.
+:::
+
+## Exemplo básico
+
+### Sem ARRAYFORMULA
+
+Somando duas células e arrastando para baixo:
+
+```excel
+=(A2+B2)
+```
+
+### Com ARRAYFORMULA
+
+Somando a coluna toda de uma vez:
+
+```excel
+=ARRAYFORMULA(A2:A + B2:B)
+```
+
+Pronto: o resultado “desce” para todas as linhas do intervalo.
+
+## Padrões úteis
+
+### 1) Cabeçalho + cálculo sem linhas em branco
+
+Mantém o título na primeira linha do resultado e calcula apenas onde há dados:
+
+```excel
+=ARRAYFORMULA({
+  "Soma";
+  IF(LEN(A2:A) + LEN(B2:B);
+     A2:A + B2:B;
+     )
+})
+```
+
+- A string `"Soma"` vira o cabeçalho.
+- A expressão `IF(LEN(...))` evita gerar resultados em linhas vazias.
+
+Alternativa com `FILTER` (sem cabeçalho):
+
+```excel
+=FILTER(A2:A + B2:B; LEN(A2:A) + LEN(B2:B))
+```
+
+### 2) Transformações de texto e data
+
+- Maiúsculas na coluna A:
+
+```excel
+=ARRAYFORMULA(UPPER(A2:A))
+```
+
+- Formatar datas da coluna A:
+
+```excel
+=ARRAYFORMULA(TEXT(A2:A; "dd/mm/aaaa"))
+```
+
+### 3) Condicionais por linha
+
+Exemplo: “Aprovado/Reprovado” com base na coluna C:
+
+```excel
+=ARRAYFORMULA(IF(LEN(C2:C); IF(C2:C>=7; "Aprovado"; "Reprovado"); ))
+```
+
+### 4) Busca em tabela (XLOOKUP por linha)
+
+Traz o preço da `Tabela!B:B` buscando pelo código em `Tabela!A:A`:
+
+```excel
+=ARRAYFORMULA(XLOOKUP(A2:A; Tabela!A:A; Tabela!B:B))
+```
+
+### 5) Evitar erros e controlar derramamento
+
+- Capture erros por linha:
+
+```excel
+=ARRAYFORMULA(IFERROR(A2:A / B2:B; ))
+```
+
+- Se aparecer `#REF!`, há algo ocupando a área onde a fórmula precisa “derramar”. Limpe as células abaixo.
+
+## ARRAYFORMULA vs MAP/BYROW (alternativas modernas)
+
+Funções como `MAP` e `BYROW` às vezes tornam a fórmula mais legível e dispensam `ARRAYFORMULA`:
+
+- Soma por par de colunas:
+
+```excel
+=MAP(A2:A; B2:B; LAMBDA(a; b; a + b))
+```
+
+- Regra de negócio por linha:
+
+```excel
+=BYROW(A2:C; LAMBDA(linha; IF(INDEX(linha; 3) >= 7; "Aprovado"; "Reprovado")))
+```
+
+Ambas percorrem intervalos e aplicam a lógica por linha/coluna.
+
+## Boas práticas e armadilhas
+
+- Limite os intervalos (ex.: `A2:A10000`), evitando referências à coluna inteira se o dataset for grande.
+- Garanta que os intervalos usados em operações tenham tamanhos compatíveis (mesmo número de linhas).
+- Formatação (cores, moeda, etc.) não “desce” com a fórmula — aplique ao intervalo-alvo.
+- Combine com `IF`/`FILTER` para evitar gerar milhares de linhas vazias no resultado.
+- Evite misturar valores fixos no meio da área que a fórmula precisa ocupar.
+
+## Exemplos rápidos adicionais
+
+- Subtrair datas (dias entre A e B):
+
+```excel
+=ARRAYFORMULA(IF(LEN(A2:A) * LEN(B2:B); B2:B - A2:A; ))
+```
+
+- Concatenar nome e sobrenome com espaço:
+
+```excel
+=ARRAYFORMULA(TRIM(A2:A & " " & B2:B))
+```
+
+- Marcar linhas com valor ausente:
+
+```excel
+=ARRAYFORMULA(IF(LEN(A2:A); IF(A2:A=""; "Faltando"; "OK"); ))
+```
+
+Com esses padrões, você cobre 90% dos usos práticos de `ARRAYFORMULA` em planilhas reais.

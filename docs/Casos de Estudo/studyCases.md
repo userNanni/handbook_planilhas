@@ -18,4 +18,4 @@ Aqui podem aparecer diferentes autores, com diferentes linhas de pensamento e so
 
 ### Nanni
 
-1. [O caso mais difícil](/problema-mais-dificil)
+1. [O caso mais difícil](./mostDifficultProblem.mdx)

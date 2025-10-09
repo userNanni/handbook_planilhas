@@ -14,10 +14,10 @@ const config: Config = {
   future: {
     v4: true,
   },
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://usernanni.github.io/",
   baseUrl: "/",
-  organizationName: "facebook",
-  projectName: "docusaurus",
+  organizationName: "usernanni",
+  projectName: "handbook_planilhas",
 
   onBrokenLinks: "throw",
   i18n: {
@@ -83,7 +83,7 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://usernanni.github.io/handbook_planilhas/",
           label: "GitHub",
           position: "right",
         },
@@ -94,7 +94,7 @@ const config: Config = {
       links: [
         {
           label: "GitHub",
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://usernanni.github.io/handbook_planilhas/",
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Handbook de Planilhas. Built with Docusaurus.`,

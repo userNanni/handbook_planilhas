@@ -1,0 +1,156 @@
+---
+id: googlefinance
+title: GOOGLEFINANCE
+sidebar_label: GOOGLEFINANCE
+slug: /funcoes/googlefinance
+description: Acompanhe ações, índices e moedas no Google Sheets com GOOGLEFINANCE. Exemplos práticos (preço atual, histórico, atributos, câmbio) e limitações.
+---
+
+# GOOGLEFINANCE
+
+> Como o Google Sheets pode te ajudar a investir?
+
+Com a **inflação corroendo** o **poder de compra**, **investir** pode ser uma boa **estratégia** para **proteger** e **aumentar** o patrimônio.  
+Mas… meus **investimentos** estão indo bem? Minha **estratégia** está sendo cumprida? **Preciso** mudar algo na **alocação**?
+
+Para responder a essas perguntas de forma **estruturada**, podemos usar o Google Sheets e a função **GOOGLEFINANCE**.
+
+:::caution Aviso de disponibilidade de dados
+Cotações, atrasos, bolsas suportadas e cobertura variam. Consulte a [tabela de exoneração de responsabilidade](https://www.google.com/intl/pt-BR/googlefinance/disclaimer/) da Google para entender limitações e atrasos por mercado.
+:::
+
+:::note Separadores regionais
+Nos exemplos em PT-BR uso “;” como separador. Em EN-US troque por “,”.
+:::
+
+## Sintaxe básica
+
+```excel
+=GOOGLEFINANCE(ticker; [atributo]; [data_inicial]; [data_final|n_dias]; [intervalo])
+```
+
+- `ticker` (obrigatório): símbolo com prefixo da bolsa. Ex.: `"BVMF:BBAS3"`, `"NASDAQ:GOOGL"`.
+- `atributo` (opcional): o que você quer trazer (ex.: `"price"`, `"name"`, `"volume"`). Se omitido, volta a série padrão.
+- `data_inicial`, `data_final|n_dias`, `intervalo` (opcionais): para histórico.
+
+Documentação completa: [Função GOOGLEFINANCE (oficial)](https://support.google.com/docs/answer/3093281?hl=pt-BR)
+
+## Exemplos rápidos
+
+### 1) Preço atual de uma ação
+
+```excel
+=GOOGLEFINANCE("BVMF:BBAS3"; "price")
+```
+
+Retorna o preço de **BBAS3** (Banco do Brasil) na **B3**.
+
+Nome da ação:
+
+```excel
+=GOOGLEFINANCE("BVMF:BBAS3"; "name")
+```
+
+Moeda da cotação:
+
+```excel
+=GOOGLEFINANCE("BVMF:BBAS3"; "currency")
+```
+
+### 2) Vários atributos comuns
+
+```excel
+=GOOGLEFINANCE("BVMF:BBAS3"; "volume")     // volume
+=GOOGLEFINANCE("BVMF:BBAS3"; "marketcap")  // valor de mercado
+=GOOGLEFINANCE("BVMF:BBAS3"; "pe")         // P/L
+=GOOGLEFINANCE("BVMF:BBAS3"; "eps")        // LPA
+```
+
+> Nem todos os atributos estão disponíveis para todos os tickers/bolsas.
+
+### 3) Histórico (fechamento diário entre datas)
+
+```excel
+=GOOGLEFINANCE("BVMF:BBAS3"; "price"; DATE(2024;1;1); TODAY(); "DAILY")
+```
+
+Retorna uma tabela com datas e preços diários no período.
+
+### 4) Câmbio (moedas)
+
+Cotação USD → BRL em tempo real:
+
+```excel
+=GOOGLEFINANCE("CURRENCY:USDBRL")
+```
+
+Histórico de câmbio (últimos 30 dias):
+
+```excel
+=GOOGLEFINANCE("CURRENCY:USDBRL"; "price"; TODAY()-30; TODAY())
+```
+
+## Aplicando em lista de tickers
+
+Para uma lista em `A2:A` (ex.: `BVMF:BBAS3`, `BVMF:PETR4`), obtenha o preço atual por linha:
+
+Com `MAP` (moderno e legível):
+
+```excel
+=MAP(A2:A; LAMBDA(t;
+  IF(LEN(t);
+     IFERROR(INDEX(GOOGLEFINANCE(t; "price")); );
+  )
+))
+```
+
+- `INDEX` pega o valor principal quando a função retorna matriz.
+- `IFERROR` evita quebrar a planilha caso o ticker esteja inválido/indisponível.
+
+Alternativa por linha com `BYROW`:
+
+```excel
+=BYROW(A2:A; LAMBDA(linha;
+  LET(t; INDEX(linha; 1);
+    IF(LEN(t); IFERROR(INDEX(GOOGLEFINANCE(t; "price")); ); )
+  )
+))
+```
+
+## Tabela de atributos úteis (amostra)
+
+| Atributo         | Descrição                   | Observações                             |
+| ---------------- | --------------------------- | --------------------------------------- |
+| `price`          | Preço atual                 | Pode variar em tempo real ou com atraso |
+| `name`           | Nome do ativo               |                                         |
+| `symbol`         | Símbolo                     |                                         |
+| `priceopen`      | Preço de abertura           |                                         |
+| `high`/`low`     | Máximo/mínimo do dia        |                                         |
+| `volume`         | Volume negociado            |                                         |
+| `marketcap`      | Valor de mercado            | Nem sempre disponível                   |
+| `pe`             | Preço/Lucro (P/L)           | Nem sempre disponível                   |
+| `eps`            | Lucro por ação (LPA)        | Nem sempre disponível                   |
+| `closeyest`      | Fechamento do dia anterior  |                                         |
+| `high52`/`low52` | Máximo/mínimo de 52 semanas |                                         |
+| `beta`           | Beta                        | Nem sempre disponível                   |
+| `currency`       | Moeda da cotação            | Útil para conversões                    |
+
+Consulte a lista oficial e atualizada em: [GOOGLEFINANCE — atributos](https://support.google.com/docs/answer/3093281?hl=pt-BR).
+
+## Boas práticas e limitações
+
+:::tip Dicas
+
+- Padronize o prefixo da bolsa: ex.: `BVMF:`, `NASDAQ:`, `NYSE:`.
+- Use `IFERROR` para lidar com indisponibilidade temporária.
+- Para histórico, limite o período necessário (performance).
+- Combine com formatação condicional para destacar variações.
+  :::
+
+:::caution Limitações comuns
+
+- Dados podem ter atraso e cobertura parcial por mercado.
+- Alguns atributos não existem para certos ativos.
+- Recalcula com frequência; em planilhas grandes pode pesar.
+- Pode retornar `#N/A` durante pregão/fora de horário ou por excesso de requisições.
+  :::
