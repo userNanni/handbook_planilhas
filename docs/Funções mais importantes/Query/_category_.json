@@ -1,0 +1,10 @@
+{
+  "label": "Query",
+  "position": 150,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": "/query",
+    "description": "A função mais importante do Google Sheets."
+  }
+}

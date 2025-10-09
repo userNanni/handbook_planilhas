@@ -1,0 +1,10 @@
+{
+  "label": "Práticas",
+  "position": 300,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": "/praticas",
+    "description": "Práticas para aplicar o conhecimento adquirido."
+  }
+}

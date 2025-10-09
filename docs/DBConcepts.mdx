@@ -1,0 +1,171 @@
+---
+id: conceitos-bd-planilhas
+title: Conceitos Relevantes de Banco de Dados para Planilhas
+sidebar_label: BD para Planilhas
+slug: /conceitos-bd
+sidebar_position: 40
+description: Tipos de dados (estruturados, semi e não estruturados), tipagem, estruturas de dados e noções relacionais aplicadas a planilhas (com foco em Google Sheets).
+---
+
+# Conceitos Relevantes de Banco de Dados para Planilhas
+
+## Tipos de Dados em Bancos de Dados
+
+Quando falamos dos **tipos de dados** que podem estar em um **banco de dados**, há várias maneiras de **classificá-los**. Uma delas é pela forma e rigidez de estruturação. Essa classificação consiste em 3 tipos:
+
+1. [Estruturados](#estruturados)
+2. [Não Estruturados](#nao-estruturados)
+3. [Semi-Estruturados](#semi-estruturados)
+
+> Mas no que isso vai me auxiliar nas planilhas?  
+> O Google Sheets força/infere automaticamente os tipos de cada coluna (atributo), o que influencia validação, filtros, ordenação e funções disponíveis.
+
+### Estruturados {#estruturados}
+
+Dados **estruturados** possuem **esquema pré-definido e rígido** ao longo da aplicação (ex.: tabelas relacionais). Isso traz **segurança** e **clareza** sobre que tipo de dado é esperado em cada [**atributo**](#atributos), permitindo agregações como soma, média, contagens, etc., com confiabilidade.
+
+### SQL
+
+Um dos maiores pontos relacionados a dados estruturados é a **Linguagem de Consulta Estruturada** — **SQL (Structured Query Language)** —, amplamente utilizada para consultas em bancos relacionais. No contexto do Google Sheets, há semelhança com a [linguagem de consultas da Google Visualization API](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br), que inspira a famosa função QUERY.
+
+> Embora exista o padrão (ex.: SQL ANSI), cada SGBD (MySQL, PostgreSQL, Oracle etc.) pode ter dialetos próprios com funções e sintaxes específicas. Ao migrar consultas entre sistemas, revise funções e tipos.
+
+### Não Estruturados {#nao-estruturados}
+
+Dados **não estruturados** são aqueles que, ao contrário dos [estruturados](#estruturados), **não** seguem um **esquema rígido pré-definido**. Exemplos comuns: fotos, vídeos, áudios, documentos. Estima-se que **grande parte** dos dados gerados na **internet** esteja nessa forma.
+
+### Semi-Estruturados {#semi-estruturados}
+
+Dados **semi-estruturados** ficam entre estruturados e não estruturados, apresentando **características de ambos**. São organizados (possuem marcadores/pares-chave), porém sem a **rigidez** de um banco relacional. Exemplos: JSON, XML, CSV com variações.
+
+## Tipagem dos Dados
+
+### String
+
+Uma **cadeia de caracteres** (letras, símbolos, textos). Em planilhas é o que você vê como “Texto”.
+
+### Boolean
+
+Valor lógico que assume **verdadeiro/falso** (em planilhas, muitas vezes exibido como TRUE/FALSE ou 0/1 conforme o caso).
+
+:::note
+“Booleano” ou “lógico” homenageia George Boole, matemático que formalizou a álgebra booleana.
+:::
+
+### Int
+
+**Número inteiro** (sem parte decimal).
+
+### Float
+
+Número em **ponto flutuante** (com parte decimal). Em planilhas, cuidados com configurações regionais (vírgula “,” vs ponto “.”) são essenciais.
+
+## Estruturas de Dados
+
+### Array
+
+Uma das estruturas mais versáteis: uma **sequência de elementos** acessados por índice.
+
+> Em português, também chamado de “arranjo”.  
+> Tipos básicos:
+>
+> 1. **Vetor**: array unidimensional.
+> 2. **Matriz**: array bidimensional (um conjunto de vetores).
+
+```jsx
+const numerosPrimos = [2, 3, 5, 7, 11, 13, 17];
+```
+
+### Métodos de Array (visão rápida)
+
+- `map`: transforma cada elemento e retorna um novo array.
+- `filter`: mantém apenas os elementos que satisfazem uma condição.
+- `reduce`: acumula valores em um único resultado (soma, produto, agregações).
+- `push/pop`: adiciona/remove do fim (pilha).
+- `shift/unshift`: remove/adiciona no início (fila/deque).
+
+### Pilha (Stack — LIFO/UEPS)
+
+Estrutura que obedece a regra `LIFO` (**L**ast **I**n, **F**irst **O**ut) — em português, **UEPS** (**Ú**ltimo que **E**ntra, **P**rimeiro que **S**ai).
+
+:::tip Exemplo prático (Ctrl+Z)
+Ao desfazer ações, a primeira ação desfeita é a última que foi executada — exatamente o comportamento de uma pilha.
+:::
+
+### Fila (Queue — FIFO/PEPS)
+
+Estrutura que segue `FIFO` (**F**irst **I**n, **F**irst **O**ut) — em português, **PEPS** (**P**rimeiro que **E**ntra, **P**rimeiro que **S**ai).
+
+:::info Exemplo prático (Mensagens)
+Mensageiros como o WhatsApp tendem a manter a ordem de chegada das mensagens; a primeira enviada é a primeira entregue/consumida, tipicamente modelada com filas.
+:::
+
+### Deque (Double-Ended Queue)
+
+Uma fila que permite inserções e remoções no início e no fim. Útil quando é preciso flexibilidade de ambos os lados.
+
+## A estrutura (propriamente dita) de um banco de dados relacional
+
+### Tabelas
+
+Conjuntos tabulares (linhas e colunas) que armazenam dados de um mesmo tipo de entidade (ex.: Pessoas, Produtos).
+
+### Registros {#registros}
+
+**Registros** são as linhas da tabela. Cada linha segue o esquema definido pelos atributos.
+
+### Atributos {#atributos}
+
+Colunas que definem o **tipo de informação** armazenada em cada registro (ex.: `nome`, `telefone`, `preco`). Em planilhas, correspondem aos nomes de cabeçalhos.
+
+### Chaves Primárias (Primary Keys)
+
+Um tipo especial de [atributo](#atributos) usado para **identificar univocamente** um registro. A chave pode ser:
+
+- **Simples**: composta por um único atributo (ex.: `id`).
+- **Composta**: união de vários atributos (ex.: `ano` + `matricula`).
+
+> Em bancos relacionais, chaves primárias devem ser únicas para permitir referência confiável a cada registro.
+
+### Entidades
+
+No modelo relacional, as tabelas representam **entidades**. Cada entidade possui [atributos](#atributos) e [registros](#registros) que a descrevem.
+
+### Relacionamentos
+
+Ligam entidades por meio de **chaves primárias** e **chaves estrangeiras**:
+
+- `1 : 1` (um para um)
+- `1 : N` (um para muitos)
+- `N : N` (muitos para muitos)
+
+Permitem conectar dados e evitar redundância (normalização).
+
+### Exemplo
+
+**Tabela 1 (Pessoas)**
+
+| Nome  | Telefone |
+| ----- | -------- |
+| João  | 1015     |
+| Pedro | 1016     |
+
+**Tabela 2 (Planos)**
+
+| Telefone | Preço |
+| -------- | ----- |
+| 1015     | 80    |
+| 1016     | 90    |
+
+Relacionando pelo telefone (chave comum), obtemos:
+
+| Nome  | Telefone | Preço |
+| ----- | -------- | ----- |
+| João  | 1015     | 80    |
+| Pedro | 1016     | 90    |
+
+### D.E.R. (Diagrama Entidade-Relacionamento)
+
+O DER é uma forma de **visualizar** um banco de dados: entidades (tabelas), atributos e relacionamentos. Nele, representamos cardinalidades como `1:1`, `1:N` e `N:N`, e identificamos chaves primárias e estrangeiras que materializam os vínculos.
+
+---

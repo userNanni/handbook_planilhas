@@ -1,3 +1,11 @@
+---
+id: Estrutura Básica
+title: Estrutura Básica
+sidebar_label: Estrutura Básica
+slug: /estrutura_basica
+sidebar_position: 152
+---
+
 # Estrutura Básica
 
 > Essa parte devia ser óbvia na documentação porém não é. Então, _Here we go again_.
