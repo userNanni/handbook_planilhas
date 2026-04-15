@@ -16,7 +16,7 @@ export default defineConfig({
 			prerender: { enabled: process.env.SKIP_PRERENDER !== "true" },
 		}),
 		react(),
-		nitro({ config: { preset: "bun", moduleSideEffects: ["#nitro-vite-setup", ".nitro/vite/services/"] } }),
+		nitro({ config: { preset: "bun", plugins: ["./server/plugins/fix-bun-fetch"], moduleSideEffects: ["#nitro-vite-setup", ".nitro/vite/services/"] } }),
 	],
 	resolve: {
 		// Lê @/* e collections/* diretamente do tsconfig.json (Vite 8+)
