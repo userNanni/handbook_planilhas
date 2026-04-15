@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
-    "build": "fumadocs-mdx && vite build",
+    "build": "fumadocs-mdx && SKIP_PRERENDER=true vite build",
+    "build:prerender": "fumadocs-mdx && vite build",
     "start": "bun .output/server/index.mjs",
     "lint": "biome check .",
     "fmt": "biome format --write .",

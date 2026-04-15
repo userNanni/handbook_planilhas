@@ -1,11 +1,39 @@
-# 📊 Handbook de Planilhas
+<p align="center">
+  <img src="public/favicon.svg" alt="Handbook de Planilhas" width="96" />
+</p>
 
-> Documentação técnica interativa sobre Google Sheets — funções avançadas, boas práticas e casos de estudo aplicados ao contexto do Corpo de Cadetes da Aeronáutica.
+<h1 align="center">Handbook de Planilhas</h1>
 
-[![Bun](https://img.shields.io/badge/runtime-Bun-f9f1e1?logo=bun)](https://bun.sh)
-[![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev)
-[![Fumadocs](https://img.shields.io/badge/docs-Fumadocs-8b5cf6)](https://fumadocs.vercel.app)
-[![License](https://img.shields.io/badge/license-MIT-green)](#licença)
+<p align="center">
+  Documentação técnica interativa sobre Google Sheets — funções avançadas, boas práticas e casos de estudo aplicados ao contexto do Corpo de Cadetes da Aeronáutica.
+</p>
+
+<p align="center">
+  <a href="https://handbook-planilhas.fly.dev"><strong>🌐 Acessar o Handbook →</strong></a>
+</p>
+
+<p align="center">
+  <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-Bun-f9f1e1?logo=bun" alt="Bun" /></a>
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61dafb?logo=react" alt="React 19" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
+  <a href="https://fumadocs.vercel.app"><img src="https://img.shields.io/badge/docs-Fumadocs-8b5cf6" alt="Fumadocs" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-22c55e" alt="MIT License" /></a>
+</p>
+
+---
+
+## Índice
+
+- [Sobre](#-sobre)
+- [Funcionalidades](#-funcionalidades)
+- [Conteúdo](#-conteúdo)
+- [Stack](#-stack)
+- [Desenvolvimento](#-desenvolvimento)
+- [Deploy](#-deploy)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Contribuindo](#-contribuindo)
+- [Licença](#-licença)
 
 ---
 
@@ -104,6 +132,22 @@ bun run typecheck   # Checar tipos TypeScript + Fumadocs MDX
 
 ---
 
+## 🐳 Deploy
+
+O projeto está configurado para deploy no [Fly.io](https://fly.io) com suporte a Docker.
+
+```bash
+# Build da imagem Docker
+docker build -t handbook-planilhas .
+
+# Deploy no Fly.io (requer flyctl instalado)
+fly deploy
+```
+
+A aplicação roda na região `gru` (São Paulo) com 512 MB de memória e escala automaticamente para zero quando inativa.
+
+---
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -118,9 +162,10 @@ handbook_planilhas/
 │   ├── lib/                   # Utilitários (EPUB, source, router)
 │   ├── routes/                # Páginas e endpoints da API
 │   └── styles/                # CSS global e estilos de impressão
-├── public/                    # Assets estáticos
+├── public/                    # Assets estáticos (favicon, imagens)
 ├── source.config.ts           # Configuração do Fumadocs MDX
 ├── vite.config.ts             # Configuração do Vite
+├── Dockerfile                 # Imagem para deploy
 └── biome.json                 # Configuração de lint e formatação
 ```
 
@@ -128,69 +173,13 @@ handbook_planilhas/
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Siga as diretrizes abaixo para manter a qualidade e consistência do projeto.
-
-### Como contribuir
-
-1. **Fork** este repositório
-2. Crie uma **branch** descritiva: `git checkout -b feat/nova-funcao-xlookup`
-3. Faça suas alterações seguindo os padrões do projeto
-4. Execute os checks: `bun run lint && bun run typecheck`
-5. Faça o **commit** com mensagem clara: `git commit -m "docs: adicionar exemplos avançados de XLOOKUP"`
-6. Abra um **Pull Request** detalhando o que foi alterado e por quê
-
-### Tipos de contribuição aceitos
-
-- 📝 Correção de erros (typos, exemplos incorretos, explicações confusas)
-- ➕ Adição de novos exemplos ou casos de uso
-- 📄 Nova documentação de funções ou tópicos
-- 🐛 Correções de bugs no código da plataforma
-- 💡 Sugestões de melhoria via [Issues](https://github.com/userNanni/handbook_planilhas/issues)
-
-### Padrões de conteúdo
-
-- Escreva em **português brasileiro**
-- Use linguagem técnica, mas acessível
-- Inclua exemplos práticos em todos os tópicos
-- Arquivos MDX devem ter frontmatter com `title` e `description`
-- Siga a estrutura de diretórios existente em `content/docs/`
-
-### Padrões de código
-
-- O código é formatado automaticamente com **Biome** — rode `bun run fmt` antes do commit
-- Sem `console.log` em produção
-- Componentes React em **PascalCase**, arquivos em **kebab-case**
-- Tipagem estrita — evite `any`
+Contribuições são bem-vindas! Consulte o [CONTRIBUTING.md](CONTRIBUTING.md) para diretrizes detalhadas sobre como contribuir com conteúdo ou código.
 
 ---
 
 ## 📄 Licença
 
 Distribuído sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-```
-MIT License
-
-Copyright (c) 2025 userNanni
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
 
 ---
 

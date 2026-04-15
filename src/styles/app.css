@@ -258,6 +258,17 @@
     border-radius: 0 !important;
   }
 
+  /* TOC — indentação hierárquica uniforme (12px por nível) */
+  .fd-toc a.ps-3 {
+    padding-inline-start: 0 !important;
+  }
+  .fd-toc a.ps-6 {
+    padding-inline-start: 0.75rem !important;
+  }
+  .fd-toc a.ps-8 {
+    padding-inline-start: 1.5rem !important;
+  }
+
   /* Breadcrumb */
   nav[aria-label="Breadcrumb"] * {
     border-radius: 0 !important;

@@ -1,4 +1,4 @@
-FROM oven/bun:1 AS builder
+FROM docker.io/oven/bun:1 AS builder
 
 WORKDIR /app
 
@@ -6,9 +6,9 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 COPY . .
-RUN bun run build
+RUN SKIP_PRERENDER=true bun run build
 
-FROM oven/bun:1-slim AS runner
+FROM docker.io/oven/bun:1-slim AS runner
 
 WORKDIR /app
 

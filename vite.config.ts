@@ -13,14 +13,18 @@ export default defineConfig({
 		mdx(await import("./source.config")),
 		tailwindcss(),
 		tanstackStart({
-			prerender: { enabled: true },
+			prerender: { enabled: process.env.SKIP_PRERENDER !== "true" },
 		}),
 		react(),
-		// @ts-expect-error — nitro aceita preset como opção de runtime (tipos desatualizados)
-		nitro({ preset: "bun" }),
+		nitro({ config: { preset: "bun", moduleSideEffects: ["#nitro-vite-setup", ".nitro/vite/services/"] } }),
 	],
 	resolve: {
 		// Lê @/* e collections/* diretamente do tsconfig.json (Vite 8+)
 		tsconfigPaths: true,
+		// Força tslib a usar o ESM nativo — evita o CJS UMD que seta __esModule:true
+		// e quebra o __toESM do Rolldown no bundle SSR
+		alias: {
+			tslib: "tslib/tslib.es6.mjs",
+		},
 	},
 })
