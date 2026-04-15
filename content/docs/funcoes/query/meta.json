@@ -1,0 +1,5 @@
+{
+  "title": "QUERY",
+  "description": "A função mais importante do Google Sheets.",
+  "pages": ["index", "base-structure", "mixed-structure", "data-manipulation", "clausulas"]
+}

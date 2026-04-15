@@ -1,8 +1,22 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "collections/*": ["./.source/*"]
+    }
   },
-  "exclude": [".docusaurus", "build"]
+  "include": [
+    "src/**/*",
+    "source.config.ts",
+    "vite.config.ts",
+    ".source/**/*"
+  ],
+  "exclude": ["dist", "node_modules", ".source", "build"]
 }

@@ -1,0 +1,70 @@
+---
+id: estrutura-basica
+title: Estrutura Básica
+sidebar_label: Estrutura Básica
+slug: /estrutura-basica
+sidebar_position: 152
+---
+
+# Estrutura Básica
+
+:::info
+Essa parte deveria ser óbvia na documentação, porém não é. Então, _here we go again_.
+:::
+
+Quando falamos da estrutura da função QUERY, precisamos separar em duas partes:
+
+1. [Estrutura da função em si](./baseStructure#estrutura-da-funcao)
+2. [Estrutura da consulta interna](./baseStructure#estrutura-da-consulta)
+
+## Estrutura da Função
+
+É tudo tão óbvio quanto descrito na [documentação oficial do QUERY](https://support.google.com/docs/answer/3093343?hl=pt-BR).
+
+### Sintaxe
+
+A sintaxe é simples, com 3 parâmetros:
+
+```text
+=QUERY(dados; consulta; [cabeçalhos])
+```
+
+1. dados (obrigatório):  
+   Aqui estará o banco de dados que será usado pela função. Basicamente, selecione todo o intervalo que tiver dados.
+
+   :::tip
+   Como o referencial são as letras/posições das colunas, recomenda-se adicionar novas colunas ao final da tabela. Depois, na consulta, podemos ordenar na forma desejada.
+   :::
+
+2. consulta (meio que obrigatório):  
+   A parte mais desafiadora — é aqui que a mágica ocorre. Por isso, dedicamos a seção de [Estrutura da Consulta](./baseStructure#estrutura-da-consulta).
+
+   :::note
+   OK, mas por que “meio que obrigatório”?
+
+   - Se nada for escrito na consulta, o Google Sheets considera `select *`, retornando todos os dados.
+   - A consulta deve estar entre aspas, mas pode ser o resultado de uma concatenação de fórmulas do Sheets com trechos da consulta. Veja mais em [Estruturas Mistas](./mixedStructure).
+     :::
+
+3. cabeçalhos (opcional):  
+   Indica quantas linhas devem ser ignoradas como cabeçalho. É simples, mas vale testar para entender como a contagem se comporta no seu caso.
+
+## Estrutura da Consulta
+
+A função QUERY é composta por diversas [cláusulas da linguagem](https://developers.google.com/chart/interactive/docs/querylanguage?hl=pt-br#language-clauses). Cada uma tem uma responsabilidade e, conforme a documentação, elas:
+
+- aparecem no máximo uma vez; e
+- devem seguir a ordem abaixo.
+
+| Cláusula                   | Uso                                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| [select](./clauses/select) | Seleciona quais colunas serão retornadas e em que ordem. Se omitido, retorna todas. |
+| [where](./clauses/where)   | Retorna apenas as linhas que atendem a uma condição.                                |
+| `group by`                 | Agrega valores em linhas (agrupamento).                                             |
+| `pivot`                    | Transforma valores distintos de uma coluna em novas colunas.                        |
+| `order by`                 | Classifica linhas por valores de colunas.                                           |
+| `limit`                    | Limita o número de linhas retornadas.                                               |
+| `offset`                   | Ignora um número de linhas iniciais.                                                |
+| `label`                    | Define rótulos (nomes) de colunas no resultado.                                     |
+| `format`                   | Formata valores de determinadas colunas segundo padrões.                            |
+| `options`                  | Define opções adicionais de consulta.                                               |

@@ -1,0 +1,188 @@
+---
+id: map
+title: MAP
+sidebar_label: MAP
+slug: /funcoes/map
+description: Aplique uma LAMBDA a cada elemento de um ou mais intervalos no Google Sheets. Exemplos práticos, padrões e comparativos com ARRAYFORMULA, BYROW e BYCOL.
+---
+
+# MAP
+
+> Como aplicar uma função a cada elemento de um intervalo de forma eficiente?
+
+Quando precisamos transformar cada valor de uma coluna, linha ou matriz, fórmulas tradicionais podem ficar extensas. A função `MAP` simplifica: ela aplica uma **LAMBDA** a cada elemento de um ou mais intervalos de entrada e retorna um novo intervalo com os resultados.
+
+:::note Separadores regionais
+Nos exemplos em PT-BR uso “;” como separador. Em EN-US troque por “,”.
+:::
+
+---
+
+## 🔍 Sintaxe
+
+```text
+=MAP(intervalo1; [intervalo2; …]; LAMBDA(valor1; [valor2; …]; formula))
+```
+
+- `intervalo1` (obrigatório): primeiro intervalo de entrada.
+- `intervalo2…` (opcional): intervalos adicionais (devem ter o mesmo tamanho do primeiro).
+- `LAMBDA(...)`: parâmetros nomeados (um por intervalo de entrada) e a expressão a aplicar elemento a elemento.
+
+:::caution Dimensões compatíveis
+Todos os intervalos de entrada precisam ter o mesmo número de linhas e colunas. Caso contrário, o Sheets retorna erro.
+:::
+
+---
+
+## 🎯 Exemplos práticos
+
+### 1) Dobrar cada valor de uma coluna
+
+Suponha valores em `A2:A5`:
+
+```text
+=MAP(A2:A5; LAMBDA(x; x * 2))
+```
+
+Resultado: `{2; 4; 6; 8}`
+
+---
+
+### 2) Concatenar elementos de duas colunas
+
+Com nomes em `A2:A4` e sobrenomes em `B2:B4`:
+
+```text
+=MAP(A2:A4; B2:B4; LAMBDA(nome; sobrenome; nome & " " & sobrenome))
+```
+
+---
+
+### 3) Aplicar regra com condicionais (Aprovado/Reprovado)
+
+Com notas em `C2:C`:
+
+```text
+=MAP(C2:C; LAMBDA(nota; IF(LEN(nota); IF(nota>=7; "Aprovado"; "Reprovado"); )))
+```
+
+---
+
+### 4) Limpeza de texto por elemento (TRIM/UPPER)
+
+Normalizar nomes em `A2:A`:
+
+```text
+=MAP(A2:A; LAMBDA(t; IF(LEN(t); UPPER(TRIM(t)); )))
+```
+
+---
+
+### 5) Cálculo por pares de colunas (soma elemento a elemento)
+
+Somar `A2:A` com `B2:B`:
+
+```text
+=MAP(A2:A; B2:B; LAMBDA(a; b; a + b))
+```
+
+---
+
+### 6) Buscar preços por ticker (GOOGLEFINANCE por linha)
+
+Para tickers em `A2:A`:
+
+```text
+=MAP(A2:A; LAMBDA(t;
+  IF(LEN(t);
+     IFERROR(INDEX(GOOGLEFINANCE(t; "price")); );
+  )
+))
+```
+
+- `INDEX` extrai o valor principal quando `GOOGLEFINANCE` retorna matriz.
+- `IFERROR` evita quebrar a planilha com tickers inválidos/indisponíveis.
+
+---
+
+## 🧩 Padrões úteis
+
+### Cabeçalho + resultado “derramado”
+
+Inclua um cabeçalho e o resultado do `MAP` abaixo:
+
+```text
+={
+  "Nome Completo";
+  MAP(A2:A; B2:B; LAMBDA(nome; sobrenome; TRIM(nome & " " & sobrenome)))
+}
+```
+
+### Ignorar linhas vazias
+
+Pule linhas sem dados:
+
+```text
+=MAP(A2:A; LAMBDA(x; IF(LEN(x); sua_expressao_aqui; )))
+```
+
+### Com LET para clareza
+
+Nomeie subexpressões dentro da LAMBDA:
+
+```text
+=MAP(A2:A; B2:B; LAMBDA(a; b;
+  LET(
+    soma; a + b;
+    IF(LEN(a) + LEN(b); soma; )
+  )
+))
+```
+
+---
+
+## 🔄 MAP vs alternativas
+
+- `ARRAYFORMULA`: ótima para operações vetorizadas simples; com lógica mais complexa, `MAP` fica mais legível.
+- `BYROW`/`BYCOL`: percorrem linha a linha/coluna a coluna (úteis quando a lógica depende da linha/coluna inteira).  
+  Ex.: classificar por linha com `BYROW`:
+  ```text
+  =BYROW(A2:C; LAMBDA(linha; IF(INDEX(linha; 3)>=7; "Aprovado"; "Reprovado")))
+  ```
+
+---
+
+## ⚠️ Armadilhas comuns
+
+- Tamanhos diferentes entre os intervalos de entrada causam erro.
+- `MAP` “derramará” os resultados: garanta espaço livre abaixo/ao lado para evitar `#REF!`.
+- Evite intervalos gigantes de coluna inteira quando a planilha for grande (performance). Prefira limites razoáveis (ex.: `A2:A10000`).
+- Atenção a números formatados como texto — normalize antes (ex.: `VALUE`, `SUBSTITUTE`).
+
+---
+
+## 📌 Receitas rápidas
+
+- Percentual a partir de duas colunas:
+
+```text
+=MAP(A2:A; B2:B; LAMBDA(a; b; IF(LEN(a)*LEN(b); a/b; )))
+```
+
+- Formatar telefone (ex.: `(00) 00000-0000`) a partir de números em `A2:A`:
+
+```text
+=MAP(A2:A; LAMBDA(n; IF(LEN(n); TEXT(n; "(00) 00000-0000"); )))
+```
+
+- Sufixo condicional (ex.: “kg” se B>0):
+
+```text
+=MAP(A2:A; B2:B; LAMBDA(a; b; IF(LEN(a); a & IF(b>0; " kg"; ""); )))
+```
+
+---
+
+## Veja também
+
+- [ARRAYFORMULA](/funcoes/arrayformula)

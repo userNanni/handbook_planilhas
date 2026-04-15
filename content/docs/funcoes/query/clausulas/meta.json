@@ -1,0 +1,5 @@
+{
+  "title": "Cláusulas",
+  "description": "Cláusulas da função QUERY.",
+  "pages": ["select", "where"]
+}

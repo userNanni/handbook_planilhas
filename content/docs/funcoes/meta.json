@@ -1,0 +1,5 @@
+{
+  "title": "Funções",
+  "description": "Funções do Google Sheets com exemplos práticos.",
+  "pages": ["index", "query", "xlookup", "map", "arrayformula", "googlefinance"]
+}

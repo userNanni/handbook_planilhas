@@ -1,0 +1,333 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* ============================================================
+   HANDBOOK DE PLANILHAS — PALE BRUTALISM
+   Estética: bordas duras, contornos finos, paleta acromática,
+   tracking negativo em display, zero arredondamento.
+   Fontes: IBM Plex Sans (UI) · IBM Plex Mono (código)
+   ============================================================ */
+
+/* ── Fontes via Google Fonts ─────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ── Gray ramp (base absoluta OKLCH) ──────────────────────── */
+:root {
+  --gray-50:   oklch(0.9900 0 0);
+  --gray-100:  oklch(0.9671 0 0);
+  --gray-150:  oklch(0.9400 0 0);
+  --gray-200:  oklch(0.9127 0 0);
+  --gray-300:  oklch(0.8546 0 0);
+  --gray-400:  oklch(0.6988 0 0);
+  --gray-500:  oklch(0.5600 0 0);
+  --gray-600:  oklch(0.4401 0 0);
+  --gray-700:  oklch(0.3549 0 0);
+  --gray-800:  oklch(0.2447 0 0);
+  --gray-900:  oklch(0.1770 0 0);
+  --gray-950:  oklch(0.1000 0 0);
+}
+
+/* ── Light mode ──────────────────────────────────────────── */
+:root {
+  /* Canvas: off-white levemente quente */
+  --fd-background:            oklch(0.9875 0.003 98);
+  --fd-foreground:            oklch(0.1000 0 0);
+
+  --fd-card:                  oklch(1.0000 0 0);
+  --fd-card-foreground:       oklch(0.1000 0 0);
+
+  --fd-popover:               oklch(1.0000 0 0);
+  --fd-popover-foreground:    oklch(0.1000 0 0);
+
+  /* Primary: preto absoluto */
+  --fd-primary:               oklch(0.1000 0 0);
+  --fd-primary-foreground:    oklch(1.0000 0 0);
+
+  --fd-secondary:             var(--gray-100);
+  --fd-secondary-foreground:  oklch(0.1000 0 0);
+
+  --fd-muted:                 var(--gray-100);
+  --fd-muted-foreground:      var(--gray-500);
+
+  /* Accent: cinza-200 — hover sutil, sem cor */
+  --fd-accent:                var(--gray-200);
+  --fd-accent-foreground:     oklch(0.1000 0 0);
+
+  /* Border + Input: cinza-300 */
+  --fd-border:                var(--gray-300);
+
+  /* Ring: preto — foco explícito */
+  --fd-ring:                  oklch(0.1000 0 0);
+
+  /* Sidebar */
+  --fd-sidebar:               var(--gray-50);
+  --fd-sidebar-foreground:    oklch(0.1000 0 0);
+  --fd-sidebar-accent:        var(--gray-200);
+  --fd-sidebar-accent-foreground: oklch(0.1000 0 0);
+  --fd-sidebar-border:        var(--gray-300);
+  --fd-sidebar-primary:       oklch(0.1000 0 0);
+  --fd-sidebar-primary-foreground: oklch(1.0000 0 0);
+
+  /* Fontes */
+  --fd-font-sans:  'IBM Plex Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --fd-font-mono:  'IBM Plex Mono', 'Geist Mono', Menlo, monospace;
+
+  /* ── RAIO ZERO — coração do brutalismo pálido ── */
+  --fd-radius:    0rem;
+  --radius:       0rem;
+
+  /* Tracking */
+  --tracking-tighter: -0.04em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  -0.01em;
+  --tracking-label:    0.06em;
+
+  /* Sombras hard offset */
+  --shadow-hard-sm:  3px 3px 0 0 oklch(0.1000 0 0);
+  --shadow-hard-md:  4px 4px 0 0 oklch(0.1000 0 0);
+  --shadow-hard-lg:  6px 6px 0 0 oklch(0.1000 0 0);
+}
+
+/* ── Dark mode ───────────────────────────────────────────── */
+.dark {
+  --fd-background:            oklch(0.1000 0 0);
+  --fd-foreground:            oklch(0.9671 0 0);
+
+  --fd-card:                  oklch(0.1500 0 0);
+  --fd-card-foreground:       oklch(0.9671 0 0);
+
+  --fd-popover:               oklch(0.1000 0 0);
+  --fd-popover-foreground:    oklch(0.9671 0 0);
+
+  --fd-primary:               oklch(0.9671 0 0);
+  --fd-primary-foreground:    oklch(0.1000 0 0);
+
+  --fd-secondary:             var(--gray-800);
+  --fd-secondary-foreground:  oklch(0.9671 0 0);
+
+  --fd-muted:                 var(--gray-900);
+  --fd-muted-foreground:      var(--gray-400);
+
+  --fd-accent:                var(--gray-800);
+  --fd-accent-foreground:     oklch(0.9671 0 0);
+
+  --fd-border:                var(--gray-800);
+
+  --fd-ring:                  oklch(0.9671 0 0);
+
+  --fd-sidebar:               oklch(0.1200 0 0);
+  --fd-sidebar-foreground:    oklch(0.9671 0 0);
+  --fd-sidebar-accent:        var(--gray-800);
+  --fd-sidebar-accent-foreground: oklch(0.9671 0 0);
+  --fd-sidebar-border:        var(--gray-800);
+
+  --shadow-hard-sm:  3px 3px 0 0 oklch(0.9671 0 0);
+  --shadow-hard-md:  4px 4px 0 0 oklch(0.9671 0 0);
+  --shadow-hard-lg:  6px 6px 0 0 oklch(0.9671 0 0);
+}
+
+/* ── Mapeamento Tailwind v4 ──────────────────────────────── */
+@theme inline {
+  --font-sans: var(--fd-font-sans);
+  --font-mono: var(--fd-font-mono);
+
+  --radius-none: 0px;
+  --radius-sm:   0px;
+  --radius-md:   0px;
+  --radius-lg:   0px;
+  --radius-xl:   0px;
+  --radius-2xl:  0px;
+  --radius-full: 0px;
+
+  --shadow-hard-sm: var(--shadow-hard-sm);
+  --shadow-hard-md: var(--shadow-hard-md);
+  --shadow-hard-lg: var(--shadow-hard-lg);
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+@layer base {
+  * {
+    border-radius: 0 !important;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  body {
+    font-family: var(--fd-font-sans);
+    letter-spacing: var(--tracking-normal);
+    background-color: var(--fd-background);
+    color: var(--fd-foreground);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: var(--tracking-tight);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  h1 { letter-spacing: var(--tracking-tighter); }
+
+  a:not([class]) {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fd-ring);
+    outline-offset: 2px;
+    border-radius: 0 !important;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gray-500); }
+  .dark ::-webkit-scrollbar-thumb { background: var(--gray-700); }
+  .dark ::-webkit-scrollbar-thumb:hover { background: var(--gray-500); }
+
+  /* Fumadocs: remove arredondamento residual */
+  [data-radix-popper-content-wrapper] *,
+  [data-side] *,
+  [role="dialog"] * {
+    border-radius: 0 !important;
+  }
+}
+
+/* ── Fumadocs overrides ──────────────────────────────────── */
+@layer base {
+  /* Navbar */
+  .fd-nav {
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--fd-border);
+    background-color: color-mix(in oklch, var(--fd-background) 95%, transparent);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Sidebar */
+  .fd-sidebar {
+    border-radius: 0 !important;
+    border-right: 1px solid var(--fd-border);
+    background-color: var(--fd-sidebar);
+  }
+
+  /* Sidebar items */
+  .fd-sidebar a,
+  .fd-sidebar button {
+    border-radius: 0 !important;
+  }
+
+  /* Active sidebar item: borda esquerda grossa */
+  [data-active="true"] {
+    border-radius: 0 !important;
+    background-color: var(--fd-accent) !important;
+    border-left: 2px solid var(--fd-foreground) !important;
+    font-weight: 500;
+  }
+
+  /* Search */
+  [cmdk-root],
+  [cmdk-input],
+  [cmdk-item] {
+    border-radius: 0 !important;
+  }
+
+  /* Code blocks */
+  pre, code {
+    border-radius: 0 !important;
+    font-family: var(--fd-font-mono) !important;
+  }
+
+  pre {
+    border-left: 3px solid var(--fd-foreground);
+    border-top: 1px solid var(--fd-border);
+    border-right: 1px solid var(--fd-border);
+    border-bottom: 1px solid var(--fd-border);
+  }
+
+  /* TOC links */
+  .fd-toc a {
+    border-radius: 0 !important;
+  }
+
+  /* Breadcrumb */
+  nav[aria-label="Breadcrumb"] * {
+    border-radius: 0 !important;
+  }
+
+  /* Cards/callouts */
+  .fd-callout,
+  [data-callout] {
+    border-radius: 0 !important;
+    border-left-width: 3px;
+  }
+
+  /* Tabs */
+  [role="tablist"],
+  [role="tab"],
+  [role="tabpanel"] {
+    border-radius: 0 !important;
+  }
+
+  /* Steps */
+  .fd-steps > li::before {
+    border-radius: 0 !important;
+  }
+}
+
+/* ── Utilitários brutalistas ─────────────────────────────── */
+@layer utilities {
+  .text-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .shadow-hard-sm  { box-shadow: var(--shadow-hard-sm); }
+  .shadow-hard-md  { box-shadow: var(--shadow-hard-md); }
+  .shadow-hard-lg  { box-shadow: var(--shadow-hard-lg); }
+
+  .brutal-hover {
+    transition: box-shadow 100ms ease, transform 100ms ease;
+  }
+  .brutal-hover:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none !important;
+  }
+
+  .border-hard { border: 2px solid oklch(0.1000 0 0); }
+  .dark .border-hard { border-color: oklch(0.9671 0 0); }
+
+  .section-rule {
+    border: none;
+    border-top: 1px solid var(--fd-border);
+    margin: 0;
+  }
+
+  /* KaTeX display blocks */
+  .katex-display {
+    overflow-x: auto;
+    padding: 0.75rem 0;
+  }
+}
+
+/* ── Cursor pointer em elementos interativos ─────────────── */
+@layer base {
+  a, button,
+  [role="button"], [role="link"], [role="menuitem"], [role="option"],
+  [role="tab"], [role="checkbox"], [role="radio"], [role="switch"],
+  [role="combobox"], label, select, summary,
+  input[type="checkbox"], input[type="radio"], input[type="submit"],
+  input[type="reset"], input[type="button"], input[type="file"] {
+    cursor: pointer;
+  }
+}
