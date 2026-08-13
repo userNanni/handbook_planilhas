@@ -4,7 +4,7 @@ title: Pontos que Precisam Ser Ditos sobre Análise de Dados
 sidebar_label: Análise de Dados
 slug: /analise-de-dados
 sidebar_position: 45
-description: Cuidados de interpretação ao analisar dados em planilhas — significância estatística versus importância prática, tamanho de amostra e leitura honesta de resultados.
+description: Cuidados ao analisar dados em planilhas — significância estatística versus importância prática, tamanho de amostra e os dois tipos de decisão orientada por dados (descoberta e decisão repetida em escala).
 ---
 
 # Pontos que Precisam Ser Ditos sobre Análise de Dados
@@ -80,7 +80,75 @@ Quando você trabalha com uma base grande no Sheets — logs, respostas de formu
 Uma média sozinha é a estatística mais fácil de calcular numa planilha e a mais fácil de usar mal. `MÉDIA` sem `CONT.NÚM` e sem `DESVPAD` ao lado é meio resultado.
 :::
 
+## Os dois tipos de decisão orientada por dados
+
+Se o ponto anterior é sobre **não superinterpretar** um resultado, este é sobre saber **que tipo de pergunta** você está fazendo antes de abrir a planilha. Provost e Fawcett, em *Data Science for Business*, separam as decisões que se beneficiam de dados em **dois tipos**:
+
+> (1) decisions for which “discoveries” need to be made within data, and (2) decisions that repeat, especially at massive scale, and so decision-making can benefit from even small increases in decision-making accuracy based on data analysis.
+>
+> — PROVOST; FAWCETT, *Data Science for Business*, cap. 1.
+
+### Tipo 1 — é preciso **descobrir** algo nos dados
+
+Aqui você **não sabe de antemão** qual padrão procura. Explora os dados atrás de um conhecimento útil que oriente uma decisão:
+
+$$
+\text{dados} \rightarrow \text{procurar padrões} \rightarrow \text{descobrir conhecimento} \rightarrow \text{decidir}
+$$
+
+Os exemplos clássicos do livro:
+
+- **Walmart / Furacão Frances.** Antes da chegada do furacão, a rede analisou as compras feitas em furacões anteriores para descobrir **quais produtos** teriam alta inesperada de demanda — padrões que a intuição sozinha não entregaria.
+- **Target / previsão de gravidez.** A empresa quis descobrir se os hábitos de compra permitiam identificar clientes provavelmente grávidas **antes** de isso se tornar público. Analisando o histórico, achou mudanças de consumo que funcionavam como indicadores e construiu modelos a partir delas.
+
+No contexto deste handbook, o equivalente seria ter milhares de registros de aquisição de material e perguntar:
+
+> “Existe algum comportamento nos dados que indique, **com antecedência**, que determinado item vai faltar em estoque?”
+
+Você ainda **não sabe qual é o padrão** — o trabalho de análise é justamente descobri-lo.
+
+### Tipo 2 — a mesma decisão, repetida em escala
+
+Aqui a decisão já está definida; o que muda é que ela é tomada **muitas vezes**. Quando isso acontece, uma melhoria **pequena** na qualidade de cada decisão se acumula num resultado grande.
+
+O exemplo do livro é a operadora fictícia **MegaTelCo**, que precisa decidir continuamente:
+
+> “Para qual cliente devo oferecer uma promoção de retenção, porque ele tem risco de cancelar o contrato?”
+
+Um modelo estima a probabilidade de *churn* de cada cliente, e a decisão é aplicada milhões de vezes:
+
+$$
+\text{modelo aprendido com os dados} \;\longrightarrow\; \underbrace{\text{cliente}_1,\ \text{cliente}_2,\ \ldots,\ \text{cliente}_n}_{\text{milhões de decisões}}
+$$
+
+Os autores apontam esse tipo em marketing direto, detecção de fraude, concessão de crédito, recomendação de produtos e publicidade on-line.
+
+### A diferença que precisa ficar guardada
+
+| Tipo | Pergunta principal | Exemplo |
+| --- | --- | --- |
+| **1 — Descoberta** | “**O que os dados podem me revelar?**” | Walmart / Target |
+| **2 — Decisão repetitiva** | “**Como tomo essa mesma decisão melhor milhares ou milhões de vezes?**” | MegaTelCo / churn |
+
+Uma sutileza importante: **os dois podem usar modelos preditivos**. A diferença **não** é “um usa análise exploratória e o outro usa IA” — a classificação vem do **tipo de decisão de negócio** que está sendo apoiada.
+
+### E por que o caso da Target é sempre lembrado
+
+Porque ele mostra que uma decisão **orientada por dados** não é, automaticamente, uma decisão **boa**. Tecnicamente a Target conseguiu inferir algo extremamente pessoal sobre seus clientes; o próprio livro registra que o sucesso da aplicação levantou **questões de ética e privacidade**.
+
+$$
+\boxed{\text{orientado por dados} \neq \text{automaticamente correto, ético ou desejável}}
+$$
+
+A análise de dados pode deixar uma organização **muito boa em descobrir ou prever** alguma coisa. Continua sendo decisão humana **se** aquela informação deve ser usada — e de que maneira.
+
+:::note Em uma frase
+Os autores apresentam dois tipos principais de decisão orientada por dados: o primeiro exige **descobrir** conhecimentos ou padrões nos dados (Walmart, Target); o segundo envolve decisões que **se repetem em grande escala**, nas quais pequenas melhorias de precisão geram grandes benefícios acumulados (churn da MegaTelCo). Em ambos, a análise apoia a decisão — mas seu uso pode gerar consequências negativas, como as questões éticas e de privacidade do caso Target.
+:::
+
 ## Fontes
 
+- PROVOST, Foster; FAWCETT, Tom. *Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking*. Sebastopol: O’Reilly Media, 2013. Capítulo 1 — *Introduction: Data-Analytic Thinking*. Disponível em: [oreilly.com](https://www.oreilly.com/library/view/data-science-for/9781449374273/).
+  - Os mesmos argumentos aparecem, em formato de artigo e com acesso aberto, em: PROVOST, Foster; FAWCETT, Tom. *Data Science and its Relationship to Big Data and Data-Driven Decision Making*. **Big Data**, v. 1, n. 1, p. 51–59, 2013. [doi:10.1089/big.2013.1508](https://doi.org/10.1089/big.2013.1508).
 - MORIN, Rich. *Facebook’s experiment causes a lot of fuss for little result*. Pew Research Center, 2 jul. 2014. Disponível em: [pewresearch.org](https://www.pewresearch.org/short-reads/2014/07/02/facebooks-experiment-is-just-the-latest-to-manipulate-you-in-the-name-of-research/).
 - KRAMER, Adam D. I.; GUILLORY, Jamie E.; HANCOCK, Jeffrey T. *Experimental evidence of massive-scale emotional contagion through social networks*. PNAS, v. 111, n. 24, p. 8788–8790, 2014. Disponível em: [pnas.org](https://www.pnas.org/doi/10.1073/pnas.1320040111).
