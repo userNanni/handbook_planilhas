@@ -1,0 +1,86 @@
+---
+id: analise-de-dados
+title: Pontos que Precisam Ser Ditos sobre Análise de Dados
+sidebar_label: Análise de Dados
+slug: /analise-de-dados
+sidebar_position: 45
+description: Cuidados de interpretação ao analisar dados em planilhas — significância estatística versus importância prática, tamanho de amostra e leitura honesta de resultados.
+---
+
+# Pontos que Precisam Ser Ditos sobre Análise de Dados
+
+Uma planilha calcula o que você pedir. Ela não pergunta se a conta **faz sentido**, nem se o resultado **importa**. Antes de sair agregando, cruzando tabelas e montando gráficos, alguns pontos precisam ser ditos.
+
+## Significância estatística não é importância prática
+
+Esse é o ponto mais mal compreendido de toda análise de dados, e ele foi resumido de forma muito clara pelo pesquisador **Rich Morin**, do Pew Research Center:
+
+> “**Statistically significant**” doesn’t necessarily mean “really, _really_ important.”
+>
+> The larger the sample size, the smaller any differences need to be to be statistically significant.
+>
+> — Rich Morin, *Facebook’s experiment causes a lot of fuss for little result*, Pew Research Center, 2 de julho de 2014.
+
+Traduzindo o argumento: um resultado ser **estatisticamente significativo** significa apenas que a diferença observada dificilmente é fruto do acaso amostral. **Não** significa que a diferença seja **grande**, **útil** ou **relevante** para alguma decisão.
+
+### Por que amostras enormes mudam o jogo
+
+A razão é matemática. O erro-padrão de uma estimativa cai aproximadamente com a raiz do tamanho da amostra:
+
+$$
+\text{EP} \propto \frac{1}{\sqrt{n}}
+$$
+
+Ou seja, quanto maior o $n$, **menor** a incerteza da estimativa — e, portanto, **menor** precisa ser a diferença para passar num teste de significância.
+
+| Tamanho da amostra | Diferença observada | O que dá para dizer |
+| --- | --- | --- |
+| 100 pessoas | 0,1% | Indistinguível de ruído |
+| 1.000.000 de pessoas | 0,1% | A diferença provavelmente existe mesmo |
+
+Repare que, nos dois casos, a diferença é **a mesma**: 0,1%. O que mudou foi só a nossa **capacidade de detectá-la**. Se 0,1% importa ou não é **outra pergunta** — e a estatística sozinha não responde ela.
+
+### O caso que originou o comentário
+
+Morin comentava o experimento do Facebook com **689.003 usuários**, no qual a rede alterou a quantidade de publicações positivas e negativas exibidas no feed e depois observou as palavras usadas pelos próprios usuários.
+
+Os efeitos medidos foram:
+
+- Reduzindo as publicações **positivas** no feed, o uso de palavras negativas subiu **0,04%** — cerca de **4 palavras negativas a mais a cada 10.000 escritas** — e o de palavras positivas caiu **0,1%**.
+- Reduzindo as publicações **negativas**, o resultado foi da ordem de **7 palavras negativas a menos e 6 palavras positivas a mais a cada 10.000**.
+
+Com quase 700 mil participantes, esses deslocamentos minúsculos foram **estatisticamente detectáveis**. Isso é bem diferente de serem **importantes**. Um dos próprios autores do estudo reconheceu depois que o efeito equivalia, em média, a **uma palavra emocional a menos por mil palavras** ao longo da semana seguinte.
+
+Então o encadeamento é:
+
+$$
+\text{efeito minúsculo} + \text{amostra enorme} \Rightarrow p\text{-valor pequeno} \Rightarrow \text{significativo}
+$$
+
+E significativo **não implica** importante.
+
+### O erro inverso, que também é erro
+
+É tentador concluir daí que “amostras grandes são menos confiáveis” ou que “Big Data engana”. **Não é isso**, e não é o que Morin diz. Mais dados, em geral, são melhores: reduzem incerteza e permitem enxergar padrões reais.
+
+O problema não está na **confiabilidade da amostra** — está na **interpretação da significância**. Uma amostra muito grande dá tanto poder estatístico que efeitos irrelevantes atravessam o teste, e alguém desatento lê “significativo” como “relevante”.
+
+> Em uma frase: o problema apontado por Rich Morin é que estudos com amostras muito grandes podem encontrar resultados **estatisticamente significativos** mesmo quando as diferenças observadas são **extremamente pequenas** e de **pouca importância prática**.
+
+### O que fazer na prática (inclusive na planilha)
+
+Quando você trabalha com uma base grande no Sheets — logs, respostas de formulário, séries do `GOOGLEFINANCE`, resultados de uma [`QUERY`](/docs/funcoes/query) com milhares de linhas — vale a disciplina de sempre reportar, ao lado de qualquer comparação:
+
+1. O **tamanho do efeito** em unidades do mundo real (reais, minutos, unidades, pontos percentuais), não só o teste.
+2. O **n** de cada grupo comparado.
+3. Uma **medida de dispersão** (desvio-padrão, intervalo), não apenas a média.
+4. A pergunta final: **essa diferença mudaria alguma decisão?** Se a resposta for não, o resultado é uma curiosidade, não um achado.
+
+:::tip
+Uma média sozinha é a estatística mais fácil de calcular numa planilha e a mais fácil de usar mal. `MÉDIA` sem `CONT.NÚM` e sem `DESVPAD` ao lado é meio resultado.
+:::
+
+## Fontes
+
+- MORIN, Rich. *Facebook’s experiment causes a lot of fuss for little result*. Pew Research Center, 2 jul. 2014. Disponível em: [pewresearch.org](https://www.pewresearch.org/short-reads/2014/07/02/facebooks-experiment-is-just-the-latest-to-manipulate-you-in-the-name-of-research/).
+- KRAMER, Adam D. I.; GUILLORY, Jamie E.; HANCOCK, Jeffrey T. *Experimental evidence of massive-scale emotional contagion through social networks*. PNAS, v. 111, n. 24, p. 8788–8790, 2014. Disponível em: [pnas.org](https://www.pnas.org/doi/10.1073/pnas.1320040111).
